@@ -1,0 +1,8 @@
+<h3>тут что-то будет</h3>
+{% for user in users_list %}
+    <tr>
+        <td>{{ user.id }}</td>
+        <td>{{ user.username}}</td>
+        <td>{{ user.first_name}} {{user.last_name}}</td>
+    </tr>
+{% endfor %}
