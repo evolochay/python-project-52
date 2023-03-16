@@ -1,10 +1,15 @@
 {% extends 'base.html' %}
+{% load bootstrap4 %}
 {% load i18n %}
-<html lang="ru">
-<head>
-    <meta charset="utf-8">
-</head>
-<body>
-    <h1 class="mt-5">{% trans 'Hello from Hexlet' %}</h1>
-    <h3>{% trans 'Practical programming courses' %}</h3>
-</body>
+
+
+{% block content %}
+
+  <div class="mb-3 text-bold">
+    <h1>{% translate "Welcome to The Task Manager!" %}</h1>
+      <p>
+         {% translate "Here you can create and manage tasks with statuses and tags." %}
+      </p>
+  </div>
+
+{% endblock %}

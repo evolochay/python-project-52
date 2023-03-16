@@ -1,19 +1,14 @@
-<!DOCTYPE HTML>
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{% load i18n %}
+{% load static %}
+
+
+<!DOCTYPE html>
 <html lang="ru-ru">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author"
-          content="">
-    <meta name="generator" content="Jekyll v4.1.1">
-    <title>{% block title %}{{ title }}{% endblock %}</title>
-
-    <link rel="canonical"
-          href="https://getbootstrap.com/docs/4.5/examples/starter-template/">
-    <link rel="shortcut icon" href="#" />
-
+    <meta charset="UTF-8">
     <style>
         body {
             padding-top: 5rem;
@@ -30,12 +25,7 @@
             font-size: 2.5rem;
         }
     </style>
-
-    {% load bootstrap4 %}
-    {% bootstrap_css %}
-    {% bootstrap_javascript jquery='full' %}
-    {% load i18n %}
-    {% load static %}
+    <title>{% translate "Task manager" %}</title>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
         <a class="navbar-brand" href="{% url 'home' %}">{% trans 'Task Manager' %}</a>
     
@@ -79,16 +69,16 @@
             </li>
         </ul>
     </nav>
-
 </head>
 
-<body>
+<body class="d-flex flex-column h-100">
+    {% block body %}
     <div class="container">
         <h1 class="mt-5">{% trans 'Educational project' %}</h1>
         <p class="lead">{% trans 'Nothing at all incomprehensible' %}</p>
         <p>Back to <a href="/docs/4.5/examples/sticky-footer/">the default sticky footer</a> minus the navbar.</p>
     </div>
-
+    {% endblock %}
 </body>
 
 </html>

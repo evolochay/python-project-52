@@ -1,8 +1,22 @@
-<h3>тут что-то будет</h3>
-{% for user in users_list %}
-    <tr>
-        <td>{{ user.id }}</td>
-        <td>{{ user.username}}</td>
-        <td>{{ user.first_name}} {{user.last_name}}</td>
-    </tr>
-{% endfor %}
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load i18n %}
+
+<div class="mb-3 text-center">
+    <h1>{% translate "Users" %}</h1>
+</div>
+
+{% block body%}
+    <table class="table table-striped border">
+        <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.first_name}} {{user.last_name}}</td>
+                </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+    
+{% endblock %}
