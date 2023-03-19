@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'task_manager.apps.users',
 ]
+AUTH_USER_MODEL = 'users.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
