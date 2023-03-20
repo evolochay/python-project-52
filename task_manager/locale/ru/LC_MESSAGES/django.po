@@ -43,3 +43,11 @@ msgstr "Учебный проект"
 #: task_manager/templates/base.html:88
 msgid "Nothing at all incomprehensible"
 msgstr "Ничегошеньки непонятно"
+
+#: task_manager/templates/user_create.html:6
+msgid "Registration form"
+msgstr "Форма регистрации"
+
+#: task_manager/templates/user_create.html:15
+msgid "Register"
+msgstr "Зарегистрироваться"
