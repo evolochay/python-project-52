@@ -6,7 +6,7 @@
     <h1>{% translate "Registration form" %}</h1>
 </div>
 
-{% block body%}
+{% block content%}
     <div class="container col-7">
         <h3 class="mb-3 text-center">{{ header }}</h3>
         <form action="{% url 'user_create' %}" method="post">
