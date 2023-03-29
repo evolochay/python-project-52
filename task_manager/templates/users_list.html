@@ -8,11 +8,23 @@
 
 {% block content%}
     <table class="table table-striped border">
+        <thead>
+            <tr>
+              <th>{% translate "id"|upper %}</th>
+              <th>{% translate "User name"|capfirst %}</th>
+              <th></th>
+            </tr>
+        </thead>
         <tbody>
             {% for user in users %}
                 <tr>
                     <td>{{ user.id }}</td>
                     <td>{{ user.first_name}} {{user.last_name}}</td>
+                    <td>
+                        <a href="{% url 'update' user.pk %}">{% translate "Update" %}</a>
+                        <br>
+                        <a href="{% url 'delete' user.pk %}">{% translate "Delete" %}</a>
+                    </td>
                 </tr>
             {% endfor %}
 
