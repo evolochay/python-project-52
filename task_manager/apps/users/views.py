@@ -1,14 +1,12 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
+from django.core.exceptions import PermissionDenied
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth import get_user_model
-from django.views import View
 from django.contrib import messages
-from django.contrib.auth.models import User
 from django.contrib.messages.views import SuccessMessageMixin
 from django.utils.translation import gettext_lazy as _
-# from task_manager.apps.users.models import User
 from task_manager.apps.users.forms import UserRegisterForm
 from task_manager.utilities.text import TitleName, Message
 
@@ -54,7 +52,7 @@ class UpdateUserView(LoginRequiredMixin, SuccessMessageMixin,
             message = own_messages.no_rigths_for_user
             url = reverse_lazy('users_list')
         else:
-
+            message = own_messages.login
             url = self.success_url
         messages.warning(self.request, message)
         return redirect(url)
@@ -65,6 +63,13 @@ class DeleteUserView(LoginRequiredMixin,
     model = get_user_model()
     template_name = 'delete.html'
     success_url = reverse_lazy('users_list')
-    def test_func(self):
-        user = self.get_object()
-        return self.request.user.id == user.id
+    def test_func(self, queryset=None):
+        obj = super().get_object(queryset=queryset)
+        return  self.request.user.id == obj.id
+
+    def handle_no_permission(self):
+        if self.request.user.is_authenticated:
+            messages.error(self.request, own_messages.no_delete_user)
+            return redirect('users_list')
+        else:
+            return redirect('%s?next=%s' % (reverse_lazy('login'), self.request.path))

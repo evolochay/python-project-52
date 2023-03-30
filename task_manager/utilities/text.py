@@ -15,3 +15,5 @@ class Message:
         self.user_create = _("User was successfully created.")
         self.user_login = _("You're logged in")
         self.user_create = _("New user here!")
+        self.no_delete_user = _("You can not delete another user!")
+        self.login = _("You need to be authorized")
