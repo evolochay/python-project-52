@@ -1,5 +1,4 @@
 from django.shortcuts import redirect
-from django.core.exceptions import PermissionDenied
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
@@ -19,29 +18,29 @@ class UserListView(ListView):
     model = get_user_model()
     template_name = "users_list.html"
     context_object_name = "users"
-    extra_context = {'title': _('Users'),
-                     'btn_update': _('Update'),
-                     'btn_delete': _('Delete'),
-                     }
+    extra_context = {
+        "title": _("Users"),
+        "btn_update": _("Update"),
+        "btn_delete": _("Delete"),
+    }
 
 
 class UserCreateView(SuccessMessageMixin, CreateView):
     form_class = UserRegisterForm
-    template_name = 'user_create.html'
-    success_url = reverse_lazy('login')
+    template_name = "user_create.html"
+    success_url = reverse_lazy("login")
     success_message = own_messages.user_create
-    extra_context = {'header': title_names.reg,
-                     'button_name': title_names.reg}
-    
+    extra_context = {"header": title_names.reg, "button_name": title_names.reg}
 
-class UpdateUserView(LoginRequiredMixin, SuccessMessageMixin,
-                     UserPassesTestMixin, UpdateView):
+
+class UpdateUserView(
+    LoginRequiredMixin, SuccessMessageMixin, UserPassesTestMixin, UpdateView
+):
     model = get_user_model()
     form_class = UserRegisterForm
-    template_name = 'user_create.html'
-    success_url = reverse_lazy('login')
-    extra_context = {'header': title_names.update_user,
-                     'button_name': title_names.save}
+    template_name = "user_create.html"
+    success_url = reverse_lazy("login")
+    extra_context = {"header": title_names.update_user, "button_name": title_names.save}
 
     def test_func(self):
         user = self.get_object()
@@ -50,7 +49,7 @@ class UpdateUserView(LoginRequiredMixin, SuccessMessageMixin,
     def handle_no_permission(self):
         if self.request.user.is_authenticated:
             message = own_messages.no_rigths_for_user
-            url = reverse_lazy('users_list')
+            url = reverse_lazy("users_list")
         else:
             message = own_messages.login
             url = self.success_url
@@ -58,18 +57,18 @@ class UpdateUserView(LoginRequiredMixin, SuccessMessageMixin,
         return redirect(url)
 
 
-class DeleteUserView(LoginRequiredMixin,
-                     UserPassesTestMixin, DeleteView):
+class DeleteUserView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = get_user_model()
-    template_name = 'delete.html'
-    success_url = reverse_lazy('users_list')
+    template_name = "delete.html"
+    success_url = reverse_lazy("users_list")
+
     def test_func(self, queryset=None):
         obj = super().get_object(queryset=queryset)
-        return  self.request.user.id == obj.id
+        return self.request.user.id == obj.id
 
     def handle_no_permission(self):
         if self.request.user.is_authenticated:
             messages.error(self.request, own_messages.no_delete_user)
-            return redirect('users_list')
+            return redirect("users_list")
         else:
-            return redirect('%s?next=%s' % (reverse_lazy('login'), self.request.path))
+            return redirect("%s?next=%s" % (reverse_lazy("login"), self.request.path))

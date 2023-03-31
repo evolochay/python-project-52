@@ -3,9 +3,11 @@ from django.utils.translation import gettext as _
 
 class TitleName:
     def __init__(self):
-        self.save = _('Save')
-        self.reg = _('Registration')
-        self.update_user = _('Update user')
+        self.save = _("Save")
+        self.reg = _("Registration")
+        self.update_user = _("Update user")
+        self.create_status = _("Create status")
+        self.create = _("Create")
 
 
 class Message:
@@ -17,3 +19,4 @@ class Message:
         self.user_create = _("New user here!")
         self.no_delete_user = _("You can not delete another user!")
         self.login = _("You need to be authorized")
+        self.status_create = _("You created new status!")
