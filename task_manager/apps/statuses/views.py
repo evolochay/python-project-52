@@ -17,7 +17,7 @@ class StatuseListView(LoginRequiredMixin, ListView):
     template_name = "statuses_list.html"
     context_object_name = "statuses"
 
-    login_url = 'login'
+    login_url = "login"
 
     def handle_no_permission(self):
         messages.warning(self.request, own_messages.login)
@@ -26,15 +26,13 @@ class StatuseListView(LoginRequiredMixin, ListView):
 
 class StatusCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = Status
-    fields = ['name']
-    login_url = 'login'
-    template_name = 'create.html'
-    success_url = reverse_lazy('statuses_list')
+    fields = ["name"]
+    login_url = "login"
+    template_name = "create.html"
+    success_url = reverse_lazy("statuses_list")
     success_message = own_messages.status_create
-    extra_context = {'header': titles.create_status,
-                     'button_name': titles.create}
+    extra_context = {"header": titles.create_status, "button_name": titles.create}
 
     def handle_no_permission(self):
         messages.warning(self.request, own_messages.login)
         return redirect(self.login_url)
-

@@ -5,8 +5,7 @@ from django.utils import timezone
 
 class Status(models.Model):
     time_create = models.DateTimeField(default=timezone.now)
-    name = models.CharField(max_length=255,
-                            verbose_name=_('Name'))
-    
+    name = models.CharField(max_length=255, verbose_name=_("Name"))
+
     def __str__(self):
         return self.name
