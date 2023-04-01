@@ -25,7 +25,7 @@
             {% for user in users %}
                 <tr>
                     <td>{{ user.id }}</td>
-                    <td>{{ user.username}}</td>
+                    <td>{{ user.username }}</td>
                     <td>
                         <a href="{% url 'user_update' user.pk %}">{% translate "Update" %}</a>
                         <br>

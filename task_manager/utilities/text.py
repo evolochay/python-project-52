@@ -11,6 +11,7 @@ class TitleName:
         self.delete_user = _("Delete user")
         self.update_status = _("Update status")
         self.update = _("Update")
+        self.delete_status = _("Delete status")
 
 
 class Message:
@@ -23,4 +24,6 @@ class Message:
         self.no_delete_user = _("You can not delete another user!")
         self.login = _("You need to be authorized")
         self.status_create = _("You created new status!")
-        self.status_update = _("Status was successfulle updated.")
+        self.status_update = _("Status was successfully updated.")
+        self.status_delete = _("Status was successfully deleted")
+        self.no_delete_status = _("Status is in use and cannot be deleted")

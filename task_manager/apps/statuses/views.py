@@ -4,6 +4,8 @@ from .models import Status
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
+from django.http import HttpResponseRedirect
+from django.db.models import ProtectedError
 from task_manager.utilities.text import Message, TitleName
 from django.urls import reverse_lazy
 
@@ -51,3 +53,26 @@ class StatusUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     def handle_no_permission(self):
         messages.warning(self.request, own_messages.login)
         return redirect(self.login_url)
+
+
+class StatusDeleteView(LoginRequiredMixin, DeleteView):
+    model = Status
+    login_url = 'login'
+    success_url = reverse_lazy('statuses_list')
+    template_name = 'delete.html'
+    extra_context = {'del_title': titles.delete_status}
+
+    def handle_no_permission(self):
+        messages.error(self.request, own_messages.login)
+        return redirect('login')
+
+
+    def form_valid(self, form):
+        success_url = self.get_success_url()
+        try:
+            self.object.delete()
+            messages.success(self.request, own_messages.status_delete)
+        except ProtectedError:
+            messages.warning(self.request, own_messages.no_delete_status)
+        finally:
+            return HttpResponseRedirect(success_url)
