@@ -51,8 +51,8 @@ msgid "Delete"
 msgstr "Удалить"
 
 #: task_manager/templates/auth.html:9
-msgid "Log out"
-msgstr "Выйти"
+msgid "Login"
+msgstr "Вход"
 
 #: task_manager/templates/auth.html:13
 msgid "Come in"
