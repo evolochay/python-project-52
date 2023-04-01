@@ -10,7 +10,7 @@ from task_manager.apps.users.forms import UserRegisterForm
 from task_manager.utilities.text import TitleName, Message
 
 
-title_names = TitleName()
+titles = TitleName()
 own_messages = Message()
 
 
@@ -27,10 +27,10 @@ class UserListView(ListView):
 
 class UserCreateView(SuccessMessageMixin, CreateView):
     form_class = UserRegisterForm
-    template_name = "user_create.html"
+    template_name = "create.html"
     success_url = reverse_lazy("login")
     success_message = own_messages.user_create
-    extra_context = {"header": title_names.reg, "button_name": title_names.reg}
+    extra_context = {"header": titles.reg, "button_name": titles.reg}
 
 
 class UpdateUserView(
@@ -38,9 +38,9 @@ class UpdateUserView(
 ):
     model = get_user_model()
     form_class = UserRegisterForm
-    template_name = "user_create.html"
+    template_name = "create.html"
     success_url = reverse_lazy("login")
-    extra_context = {"header": title_names.update_user, "button_name": title_names.save}
+    extra_context = {"header": titles.update_user, "button_name": titles.save}
 
     def test_func(self):
         user = self.get_object()
@@ -61,6 +61,7 @@ class DeleteUserView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = get_user_model()
     template_name = "delete.html"
     success_url = reverse_lazy("users_list")
+    extra_context = {'del_title': titles.delete_user}
 
     def test_func(self, queryset=None):
         obj = super().get_object(queryset=queryset)

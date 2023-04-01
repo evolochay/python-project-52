@@ -36,3 +36,18 @@ class StatusCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     def handle_no_permission(self):
         messages.warning(self.request, own_messages.login)
         return redirect(self.login_url)
+
+
+class StatusUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
+    model = Status
+    fields = ['name']
+    login_url = 'login'
+    template_name = 'create.html'
+    success_url = reverse_lazy('statuses_list')
+    success_message = own_messages.status_update
+    extra_context = {'header': titles.update_status,
+                     'button_name': titles.update}
+
+    def handle_no_permission(self):
+        messages.warning(self.request, own_messages.login)
+        return redirect(self.login_url)

@@ -5,6 +5,7 @@
 {% bootstrap_css %}
 
 {% block content %}
+  <h1>{{ del_title }}</h1>
   <p>{% translate "Would you like to delete" %} {{ object }}?</p>
   <form method="post">
     {% csrf_token %}

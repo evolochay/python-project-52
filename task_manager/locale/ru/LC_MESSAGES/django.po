@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-09 11:46+0100\n"
+"POT-Creation-Date: 2023-04-01 20:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,34 +20,193 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: task_manager/templates/base.html:52
+#: task_manager/apps/statuses/models.py:8
+#: task_manager/templates/statuses_list.html:28
+msgid "Name"
+msgstr ""
+
+#: task_manager/apps/users/forms.py:11
+msgid "Enter user first name."
+msgstr ""
+
+#: task_manager/apps/users/forms.py:12
+msgid "Enter user last name."
+msgstr ""
+
+#: task_manager/apps/users/views.py:22 task_manager/templates/base.html:47
+#: task_manager/templates/users_list.html:14
 msgid "Users"
 msgstr "Пользователи"
 
-#: task_manager/templates/base.html:73
-msgid "Login"
-msgstr "Зайти"
+#: task_manager/apps/users/views.py:23
+#: task_manager/templates/statuses_list.html:40
+#: task_manager/templates/users_list.html:30 task_manager/utilities/text.py:13
+msgid "Update"
+msgstr ""
 
-#: task_manager/templates/base.html:77
-msgid "Registration"
-msgstr "Зарегистрироваться"
+#: task_manager/apps/users/views.py:24
+#: task_manager/templates/statuses_list.html:42
+#: task_manager/templates/users_list.html:32
+msgid "Delete"
+msgstr ""
 
-#: task_manager/templates/base.html:40
+#: task_manager/templates/auth.html:9 task_manager/templates/base.html:74
+msgid "Log in"
+msgstr ""
+
+#: task_manager/templates/auth.html:13
+msgid "Come in"
+msgstr ""
+
+#: task_manager/templates/base.html:33 task_manager/views.py:12
+#, fuzzy
+#| msgid "Task Manager"
+msgid "Task manager"
+msgstr "Менеджер задач"
+
+#: task_manager/templates/base.html:35
 msgid "Task Manager"
 msgstr "Менеджер задач"
 
-#: task_manager/templates/base.html:87
+#: task_manager/templates/base.html:52
+#: task_manager/templates/statuses_list.html:20
+msgid "Statuses"
+msgstr "Статусы"
+
+#: task_manager/templates/base.html:56
+msgid "Labels"
+msgstr ""
+
+#: task_manager/templates/base.html:60
+msgid "Tasks"
+msgstr ""
+
+#: task_manager/templates/base.html:70
+msgid "Log out"
+msgstr ""
+
+#: task_manager/templates/base.html:75
+msgid "Sing up"
+msgstr ""
+
+#: task_manager/templates/base.html:85
 msgid "Educational project"
 msgstr "Учебный проект"
 
-#: task_manager/templates/base.html:88
+#: task_manager/templates/base.html:86
 msgid "Nothing at all incomprehensible"
 msgstr "Ничегошеньки непонятно"
 
-#: task_manager/templates/user_create.html:6
+#: task_manager/templates/create.html:6
 msgid "Registration form"
 msgstr "Форма регистрации"
 
-#: task_manager/templates/user_create.html:15
-msgid "Register"
+#: task_manager/templates/delete.html:9
+msgid "Would you like to delete"
+msgstr ""
+
+#: task_manager/templates/delete.html:12
+msgid "Yes, delete"
+msgstr ""
+
+#: task_manager/templates/index.html:9
+#, fuzzy
+#| msgid "Task Manager"
+msgid "Welcome to The Task Manager!"
+msgstr "Менеджер задач"
+
+#: task_manager/templates/index.html:11
+msgid "Here you can create and manage tasks with statuses and tags."
+msgstr ""
+
+#: task_manager/templates/statuses_list.html:22
+#: task_manager/utilities/text.py:9
+msgid "Create status"
+msgstr ""
+
+#: task_manager/templates/statuses_list.html:27
+#: task_manager/templates/users_list.html:19
+msgid "id"
+msgstr ""
+
+#: task_manager/templates/statuses_list.html:29
+msgid "Date of creation"
+msgstr ""
+
+#: task_manager/templates/users_list.html:20
+msgid "User name"
+msgstr ""
+
+#: task_manager/utilities/text.py:6
+msgid "Save"
+msgstr ""
+
+#: task_manager/utilities/text.py:7
+msgid "Registration"
 msgstr "Зарегистрироваться"
+
+#: task_manager/utilities/text.py:8
+msgid "Update user"
+msgstr ""
+
+#: task_manager/utilities/text.py:10
+msgid "Create"
+msgstr ""
+
+#: task_manager/utilities/text.py:11
+msgid "Delete user"
+msgstr ""
+
+#: task_manager/utilities/text.py:12
+msgid "Update status"
+msgstr ""
+
+#: task_manager/utilities/text.py:18
+msgid "You can`t change another user."
+msgstr ""
+
+#: task_manager/utilities/text.py:19
+msgid "User was successfully updated."
+msgstr ""
+
+#: task_manager/utilities/text.py:20
+msgid "User was successfully created."
+msgstr ""
+
+#: task_manager/utilities/text.py:21 task_manager/views.py:20
+msgid "You're logged in"
+msgstr ""
+
+#: task_manager/utilities/text.py:22
+msgid "New user here!"
+msgstr ""
+
+#: task_manager/utilities/text.py:23
+msgid "You can not delete another user!"
+msgstr ""
+
+#: task_manager/utilities/text.py:24
+msgid "You need to be authorized"
+msgstr ""
+
+#: task_manager/utilities/text.py:25
+msgid "You created new status!"
+msgstr ""
+
+#: task_manager/utilities/text.py:26
+msgid "Status was successfulle updated."
+msgstr ""
+
+#: task_manager/views.py:13
+msgid "A simple and functional task manager."
+msgstr ""
+
+#: task_manager/views.py:25
+msgid "You're logged out"
+msgstr ""
+
+#~ msgid "Login"
+#~ msgstr "Вход"
+
+#~ msgid "Register"
+#~ msgstr "Зарегистрироваться"

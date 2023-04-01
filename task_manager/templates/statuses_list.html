@@ -37,7 +37,7 @@
                     <td>{{ status.name}}</td>
                     <td>{{ status.time_create}}</td>
                     <td>
-                        <a href="">{% translate "Update" %}</a>
+                        <a href="{% url 'status_update' status.pk %}">{% translate "Update" %}</a>
                         <br>
                         <a href="">{% translate "Delete" %}</a>
                     </td>
