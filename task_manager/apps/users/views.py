@@ -61,7 +61,7 @@ class DeleteUserView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = get_user_model()
     template_name = "delete.html"
     success_url = reverse_lazy("users_list")
-    extra_context = {'del_title': titles.delete_user}
+    extra_context = {"del_title": titles.delete_user}
 
     def test_func(self, queryset=None):
         obj = super().get_object(queryset=queryset)
