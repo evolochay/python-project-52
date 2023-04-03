@@ -18,7 +18,6 @@ class StatuseListView(LoginRequiredMixin, ListView):
     model = Status
     template_name = "statuses_list.html"
     context_object_name = "statuses"
-
     login_url = "login"
 
     def handle_no_permission(self):
