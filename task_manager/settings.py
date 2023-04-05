@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "bootstrap4",
     "task_manager.apps.users",
     "task_manager.apps.statuses",
+    "task_manager.apps.tasks",
 ]
 
 AUTH_USER_MODEL = "users.User"

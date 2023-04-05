@@ -12,6 +12,9 @@ class TitleName:
         self.update_status = _("Update status")
         self.update = _("Update")
         self.delete_status = _("Delete status")
+        self.create_task = _("Create task")
+        self.update_task = _("Update task")
+        self.delete_task = _("Delete task")
 
 
 class Message:
@@ -27,3 +30,5 @@ class Message:
         self.status_update = _("Status was successfully updated.")
         self.status_delete = _("Status was successfully deleted")
         self.no_delete_status = _("Status is in use and cannot be deleted")
+        self.task_create = _("Task was successfully created.")
+        self.task_update = _("Task was successfully updated.")

@@ -19,6 +19,7 @@ django-bootstrap4 = "^22.3"
 flake8 = "^4.0.1"
 black = "^23.3.0" 
 model-bakery = "^1.10.3"
+django-filter = "^23.1"
 
 [tool.poetry.dev-dependencies]
 

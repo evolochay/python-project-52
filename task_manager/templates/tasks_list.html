@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% bootstrap_javascript jquery='full' %}
+{% bootstrap_css %}
+
+
+{% block content %}
+
+<div class="mb-3 text-center">
+    <h1>{% translate "Tasks" %}</h1>
+</div>
+
+<form method="get">
+
+    <button type="submit" class="btn btn-primary">{% translate "Show" %}</button>
+</form>
+
+<a href="{% url 'task_create' %}" class="btn btn-outline-primary mb-3" role="button">{% translate "Create task" %}</a>
+
+<table class="table table-striped border">
+    <thead>
+      <tr>
+        <th>{% translate "ID" %}</th>
+        <th>{% translate "Name" %}</th>
+        <th>{% translate "Status" %}</th>
+        <th>{% translate "Author" %}</th>
+        <th>{% translate "Executor" %}</th>
+        <th>{% translate "Created date" %}</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for task in tasks %}
+        <tr>
+          <td>{{ task.id }}</td>
+          <td><a href="{% url 'task_show' task.pk %}">{{ task.name }}</a></td>
+          <td>{{ task.status}}</td>
+          <td>{{ task.author}}</td>
+          <td>{{ task.executor}}</td>
+          <td>{{ task.time_create|date:'d.m.Y' }}</td>
+          <td>
+              <a href="{% url 'task_update' task.pk %}">{% translate "Update" %}</a>
+              <br>
+              <a href="{% url 'task_delete' task.pk %}">{% translate "Delete" %}</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

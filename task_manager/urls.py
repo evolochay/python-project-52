@@ -25,4 +25,5 @@ urlpatterns = [
     path("statuses/", include("task_manager.apps.statuses.urls")),
     path("login/", LoginUser.as_view(), name="login"),
     path("logout/", LogoutUser.as_view(), name="logout"),
+    path("tasks/", include("task_manager.apps.tasks.urls")),
 ]
