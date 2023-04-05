@@ -8,8 +8,8 @@ from task_manager.apps.statuses.views import (
 
 
 urlpatterns = [
-    path('', StatuseListView.as_view(), name='statuses_list'),
-    path('create/', StatusCreateView.as_view(), name='status_create'),
-    path('<int:pk>/update/', StatusUpdateView.as_view(), name='status_update'),
-    path('<int:pk>/delete/', StatusDeleteView.as_view(), name='status_delete'),
+    path("", StatuseListView.as_view(), name="statuses_list"),
+    path("create/", StatusCreateView.as_view(), name="status_create"),
+    path("<int:pk>/update/", StatusUpdateView.as_view(), name="status_update"),
+    path("<int:pk>/delete/", StatusDeleteView.as_view(), name="status_delete"),
 ]

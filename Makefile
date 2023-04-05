@@ -17,6 +17,9 @@ test-coverage:
 	poetry run coverage xml
 	poetry run coverage report
 
+# make test-coverage:
+# 	poetry run pytest --cov=task_manager --cov-report xml tests/
+
 messages:
 	poetry run django-admin makemessages -l ru
 

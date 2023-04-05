@@ -32,21 +32,18 @@ class StatuseListViewTest(TestCase):
 class StatusUpdateViewTestCase(TestCase):
     def setUp(self):
         self.client = Client()
-        self.user = User.objects.create_user(
-            username='testuser', password='testpass'
-        )
-        self.status = Status.objects.create(name='Old Status Name')
+        self.user = User.objects.create_user(username="testuser", password="testpass")
+        self.status = Status.objects.create(name="Old Status Name")
 
     def test_update_status(self):
-        self.client.login(username='testuser', password='testpass')
+        self.client.login(username="testuser", password="testpass")
         response = self.client.post(
-            reverse('status_update', kwargs={'pk': self.status.pk}),
-            {'name': 'New Status Name'}
+            reverse("status_update", kwargs={"pk": self.status.pk}),
+            {"name": "New Status Name"},
         )
         self.assertEqual(response.status_code, 302)
         self.status.refresh_from_db()
-        self.assertEqual(self.status.name, 'New Status Name')
-
+        self.assertEqual(self.status.name, "New Status Name")
 
 
 class StatusDeleteViewTestCase(TestCase):
