@@ -15,6 +15,9 @@ class TitleName:
         self.create_task = _("Create task")
         self.update_task = _("Update task")
         self.delete_task = _("Delete task")
+        self.create_label = _("Create label")
+        self.update_label = _("Update label")
+        self.delete_label = _("Delete label")
 
 
 class Message:
@@ -32,3 +35,7 @@ class Message:
         self.no_delete_status = _("Status is in use and cannot be deleted")
         self.task_create = _("Task was successfully created.")
         self.task_update = _("Task was successfully updated.")
+        self.label_create = _("Label was successfully created.")
+        self.label_update = _("Label was successfully updated.")
+        self.label_delete = _("Label was successfully deleted")
+        self.no_delete_label = _("Label is in use and cannot be deleted")

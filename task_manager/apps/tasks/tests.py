@@ -9,6 +9,7 @@ from .models import Task
 
 class TaskListViewTest(TestCase):
     def setUp(self):
+        self.client = Client()
         self.user = User.objects.create_user(username="testuser", password="testpass")
         self.status = Status.objects.create(name="Test name")
         self.task = Task.objects.create(
@@ -18,7 +19,6 @@ class TaskListViewTest(TestCase):
             author=self.user,
         )
         self.url = reverse("tasks_list")
-        self.client = Client()
 
     def test_list_view_with_login(self):
         self.client.login(username="testuser", password="testpass")
@@ -52,19 +52,6 @@ class TaskListViewTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "create.html")
 
-
-class TaskUpdateViewTestCase(TestCase):
-    def setUp(self):
-        self.client = Client()
-        self.user = User.objects.create_user(username="testuser", password="testpass")
-        self.status = Status.objects.create(name="Test name")
-        self.task = Task.objects.create(
-            name="Old Task Name",
-            description="Test Description",
-            status=self.status,
-            author=self.user,
-        )
-
     def test_update_task(self):
         self.client.login(username="testuser", password="testpass")
         response = self.client.post(
@@ -74,19 +61,6 @@ class TaskUpdateViewTestCase(TestCase):
         self.assertRedirects(response, reverse("tasks_list"))
         self.status.refresh_from_db()
         self.assertEqual(self.status.name, "New Task Name")
-
-
-class TaskDeleteViewTestCase(TestCase):
-    def setUp(self):
-        self.client = Client()
-        self.user = User.objects.create_user(username="testuser", password="testpass")
-        self.status = Status.objects.create(name="Test name")
-        self.task = Task.objects.create(
-            name="Old Task Name",
-            description="Test Description",
-            status=self.status,
-            author=self.user,
-        )
 
     def test_delete_task(self):
         self.client.login(username="testuser", password="password")

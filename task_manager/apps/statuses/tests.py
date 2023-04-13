@@ -1,7 +1,7 @@
 from django.test import TestCase, Client
 from django.urls import reverse
 
-#  from model_bakery import baker
+from model_bakery import baker
 from task_manager.apps.users.models import User
 from .models import Status
 
@@ -30,26 +30,6 @@ class StatuseListViewTest(TestCase):
         self.assertEqual(len(messages), 1)
         self.assertEqual(str(messages[0]), "You need to be authorized")
 
-    def test_user_can_delete_status(self):
-        self.client.login(username="testuser", password="testpass")
-        response = self.client.post(self.url)
-        self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, reverse("statuses_list"))
-        self.assertFalse(Status.objects.filter(pk=self.status.pk).exists())
-
-    def test_user_cannot_delete_protected_status(self):
-        self.client.login(username="testuser", password="testpass")
-        response = self.client.post(self.url)
-        self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, reverse("statuses_list"))
-
-
-class StatusUpdateViewTestCase(TestCase):
-    def setUp(self):
-        self.client = Client()
-        self.user = User.objects.create_user(username="testuser", password="testpass")
-        self.status = Status.objects.create(name="Old Status Name")
-
     def test_update_status(self):
         self.client.login(username="testuser", password="testpass")
         response = self.client.post(
@@ -59,3 +39,19 @@ class StatusUpdateViewTestCase(TestCase):
         self.assertEqual(response.status_code, 302)
         self.status.refresh_from_db()
         self.assertEqual(self.status.name, "New Status Name")
+
+    def test_user_can_delete_status(self):
+        self.client.login(username="testuser", password="testpass")
+        response = self.client.post(self.url)
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, reverse("statuses_list"))
+        self.assertFalse(Status.objects.filter(pk=self.status.pk).exists())
+
+    def test_user_cannot_delete_status_with_task(self):
+        self.client.login(username="testuser", password="testpass")
+        task = baker.make("tasks.Task", status=self.status)
+        task.status = self.status
+        response = self.client.post(self.url)
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, reverse("statuses_list"))
+        self.assertTrue(Status.objects.filter(pk=self.status.pk).exists())
