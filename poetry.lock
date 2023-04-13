@@ -83,7 +83,7 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,>=2.7
 
 [[package]]
 name = "coverage"
-version = "7.2.2"
+version = "7.2.3"
 description = "Code coverage measurement for Python"
 category = "main"
 optional = false
@@ -361,7 +361,7 @@ python-versions = ">=2"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "1f1eea0fc11c99b49151844ddf7cab48907dac3443e5fd3365b0553505515f63"
+content-hash = "0c2004c88be04ce372f0128563e7b5dcab790de64384a96b58219bde044ac2eb"
 
 [metadata.files]
 asgiref = []

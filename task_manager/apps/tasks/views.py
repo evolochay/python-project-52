@@ -62,7 +62,7 @@ class TaskShowView(LoginRequiredMixin, DetailView):
 
 class TaskUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = Task
-    fields = ["name", "description", "status", "executor", "labels"]
+    fields = ["name", "description", "status", "executor"]
     template_name = "create.html"
     success_url = reverse_lazy("tasks_list")
     success_message = own_message.task_update

@@ -3,8 +3,6 @@ from django.utils.translation import gettext_lazy as _
 from task_manager.apps.users.models import User
 from task_manager.apps.statuses.models import Status
 
-# Create your models here.
-
 
 class Task(models.Model):
     name = models.CharField(max_length=255, verbose_name=_("Name"))
