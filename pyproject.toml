@@ -7,6 +7,7 @@ readme = "README.md"
 packages = [
   { include = "task_manager" },
 ]
+repository = "https://github.com/foxy-chay/python-project-52"
 
 [tool.poetry.dependencies]
 python = "^3.10"
