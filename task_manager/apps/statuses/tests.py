@@ -1,6 +1,5 @@
 from django.test import TestCase, Client
-from django.urls import reverse
-
+from django.urls import reverse 
 from model_bakery import baker
 from task_manager.apps.users.models import User
 from .models import Status
@@ -36,6 +35,7 @@ class StatuseListViewTest(TestCase):
             reverse("status_update", kwargs={"pk": self.status.pk}),
             {"name": "New Status Name"},
         )
+        print(f"statuscide: {response.status_code}")
         self.assertEqual(response.status_code, 302)
         self.status.refresh_from_db()
         self.assertEqual(self.status.name, "New Status Name")

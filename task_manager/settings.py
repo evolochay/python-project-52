@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "task_manager.apps.statuses",
     "task_manager.apps.tasks",
     "task_manager.apps.labels",
+    "django_filters",
 ]
 
 AUTH_USER_MODEL = "users.User"

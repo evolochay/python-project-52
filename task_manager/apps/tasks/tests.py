@@ -58,6 +58,7 @@ class TaskListViewTest(TestCase):
             reverse("task_update", kwargs={"pk": self.status.pk}),
             {"name": "New Task Name"},
         )
+        print(f"statuscide: {response.status_code}")
         self.assertRedirects(response, reverse("tasks_list"))
         self.status.refresh_from_db()
         self.assertEqual(self.status.name, "New Task Name")

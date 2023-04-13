@@ -31,7 +31,7 @@ class TaskListView(LoginRequiredMixin, ListView):
 
 class TaskCreateView(LoginRequiredMixin, CreateView):
     model = Task
-    fields = ["name", "description", "status", "executor"]
+    fields = ["name", "description", "status", "executor", "labels"]
     template_name = "create.html"
     success_url = reverse_lazy("tasks_list")
     extra_context = {"header": titles.create_task, "button_name": titles.create}
@@ -62,7 +62,7 @@ class TaskShowView(LoginRequiredMixin, DetailView):
 
 class TaskUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = Task
-    fields = ["name", "description", "status", "executor"]
+    fields = ["name", "description", "status", "executor", "labels"]
     template_name = "create.html"
     success_url = reverse_lazy("tasks_list")
     success_message = own_message.task_update
