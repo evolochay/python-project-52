@@ -30,7 +30,6 @@ class Task(models.Model):
     
     time_create = models.DateTimeField(auto_now_add=True, verbose_name=_("Date"))
     
-
     def __str__(self):
         return self.name
     

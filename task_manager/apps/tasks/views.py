@@ -12,16 +12,18 @@ from django.views.generic import (
 )
 from django.contrib import messages
 from .models import Task
+from .filter import TaskFilter
 from task_manager.utilities.text import Message, TitleName
 
 own_message = Message()
 titles = TitleName()
 
 
-class TaskListView(LoginRequiredMixin, ListView):
+class TaskListView(LoginRequiredMixin, FilterView):
     model = Task
     context_object_name = "tasks"
     template_name = "tasks_list.html"
+    filterset_class = TaskFilter
     login_url = "login"
 
     def handle_no_permission(self):
@@ -37,16 +39,17 @@ class TaskCreateView(LoginRequiredMixin, CreateView):
     extra_context = {"header": titles.create_task, "button_name": titles.create}
     login_url = "login"
 
-    def handle_no_permission(self):
-        messages.warning(self.request, own_message.login)
-        return redirect(self.login_url)
-
     def form_valid(self, form):
         self.object = form.save(commit=False)
         self.object.author = self.request.user
         self.object.save()
         messages.success(self.request, own_message.task_create)
+        print('DEBUG: form_valid - success_url =', self.success_url)
         return super(TaskCreateView, self).form_valid(form)
+
+    def handle_no_permission(self):
+        messages.warning(self.request, own_message.login)
+        return redirect(self.login_url)
 
 
 class TaskShowView(LoginRequiredMixin, DetailView):
@@ -83,10 +86,10 @@ class TaskDeleteView(
     template_name = "delete.html"
     extra_context = {"del_title": titles.delete_status}
 
-    def handle_no_permission(self):
-        messages.error(self.request, own_message.login)
-        return redirect("login")
-
     def test_func(self):
         task = self.get_object()
         return self.request.user.id == task.author.id
+    
+    def handle_no_permission(self):
+        messages.error(self.request, own_message.login)
+        return redirect("login")

@@ -17,6 +17,9 @@
       display: block;
       padding: .5rem 1rem;
   }
+  .form-control {
+    
+  }
 </style>
 
 <div class="mb-3 text-left">
@@ -24,6 +27,45 @@
 </div>
 
 <a class="nav-link" href="{% url 'task_create' %}">{% translate "Create task" %}</a>
+
+<div class="card mb-3">
+  <div class="card-body bg-light">
+    <form class="form-inline center" method="get">
+      <div class="form-group">
+        <label for="id_status">{% translate "Statuses" %}</label>
+        <div class="ml-2 mr-3">
+          <select name="Status" class="form-control" title="{{ filter.form.status }}"></select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="id_status">{% translate "Executor" %}</label>
+        <div class="ml-2 mr-3">
+          <select name="Executor" class="form-control" title="{{ filter.form.executor }}"></select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="id_status">{% translate "Labels" %}</label>
+        <div class="ml-2 mr-3">
+          <select name="Labels" class="form-control" title="{{ filter.form.labels }}"></select>
+      </div>
+        </div>
+        <div class="col-auto mr-auto"><br>
+          {{ filter.form.self_task }} {% translate 'My tasks only' %}
+        </div>
+
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            {{ filter.form.label.label }}
+            {{ filter.form.label }}
+          </div>
+        <div class="col-auto mx-auto"><br>
+          <button class="btn btn-primary" type="submit">{% translate "Show" %}</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
 
 <table class="table table-striped border">
     <thead>

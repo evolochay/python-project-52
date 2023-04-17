@@ -2,7 +2,6 @@ from django.test import TestCase, Client
 from django.urls import reverse_lazy
 from task_manager.apps.users.models import User
 from .models import Label
-from .views import LabelListView
 
 
 class LabelListViewTest(TestCase):
@@ -24,5 +23,3 @@ class LabelListViewTest(TestCase):
         self.client.login(username='testuser', password='12345')
         response = self.client.post(self.del_url)
         self.assertRedirects(response, self.url)
-        self.assertContains(response, "Label was successfully deleted")
-

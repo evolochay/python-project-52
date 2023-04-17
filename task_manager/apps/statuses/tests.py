@@ -2,7 +2,7 @@ from django.test import TestCase, Client
 from django.urls import reverse 
 from model_bakery import baker
 from task_manager.apps.users.models import User
-from .models import Status
+from task_manager.apps.statuses.models import Status
 
 
 class StatuseListViewTest(TestCase):
@@ -29,13 +29,30 @@ class StatuseListViewTest(TestCase):
         self.assertEqual(len(messages), 1)
         self.assertEqual(str(messages[0]), "You need to be authorized")
 
+    def test_create_status(self):
+        self.client.force_login(self.user)
+        # self.client.login(username="testuser", password="testpass")
+        # stat = baker.make("statuses.Status", name="Status for task")
+        # label = baker.make("labels.Label", name="Label for task")
+    
+        form_data = {
+            "name": "Test Test Test Status",
+        }
+        """ POST """
+        response = self.client.post(reverse("status_create"), kwargs=form_data)
+        status = Status.objects.get(name="Test Test Test Status")
+        print(f"task name: {status.name}")
+        self.assertRedirects(response, reverse('statuses_list'))
+        
+        
+        # task = Task.objects.get(name="Test Task")
+        
     def test_update_status(self):
         self.client.login(username="testuser", password="testpass")
         response = self.client.post(
             reverse("status_update", kwargs={"pk": self.status.pk}),
             {"name": "New Status Name"},
         )
-        print(f"statuscide: {response.status_code}")
         self.assertEqual(response.status_code, 302)
         self.status.refresh_from_db()
         self.assertEqual(self.status.name, "New Status Name")
