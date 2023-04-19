@@ -39,6 +39,10 @@ class TaskCreateView(LoginRequiredMixin, CreateView):
     extra_context = {"header": titles.create_task, "button_name": titles.create}
     login_url = "login"
 
+    def handle_no_permission(self):
+        messages.warning(self.request, own_message.login)
+        return redirect(self.login_url)
+
     def form_valid(self, form):
         self.object = form.save(commit=False)
         self.object.author = self.request.user
@@ -46,10 +50,6 @@ class TaskCreateView(LoginRequiredMixin, CreateView):
         messages.success(self.request, own_message.task_create)
         print('DEBUG: form_valid - success_url =', self.success_url)
         return super(TaskCreateView, self).form_valid(form)
-
-    def handle_no_permission(self):
-        messages.warning(self.request, own_message.login)
-        return redirect(self.login_url)
 
 
 class TaskShowView(LoginRequiredMixin, DetailView):

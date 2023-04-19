@@ -10,7 +10,7 @@ lint:
 	poetry run flake8 task_manager
 
 test:
-	$(LOCAL) test -v 3
+	$(LOCAL) test --traceback -v 2
 
 test-coverage:
 	poetry run coverage run manage.py test
