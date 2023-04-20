@@ -23,16 +23,14 @@ class Task(models.Model):
     )
 
     labels = models.ManyToManyField(
-        Label,
-        through='LabelForTask',
-        verbose_name=_('Labels'),
-        blank=True)
-    
+        Label, through="LabelForTask", verbose_name=_("Labels"), blank=True
+    )
+
     time_create = models.DateTimeField(auto_now_add=True, verbose_name=_("Date"))
-    
+
     def __str__(self):
         return self.name
-    
+
 
 class LabelForTask(models.Model):
     task = models.ForeignKey(Task, on_delete=models.CASCADE, null=True)

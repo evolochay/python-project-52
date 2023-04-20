@@ -48,7 +48,7 @@ class TaskCreateView(LoginRequiredMixin, CreateView):
         self.object.author = self.request.user
         self.object.save()
         messages.success(self.request, own_message.task_create)
-        print('DEBUG: form_valid - success_url =', self.success_url)
+        print("DEBUG: form_valid - success_url =", self.success_url)
         return super(TaskCreateView, self).form_valid(form)
 
 
@@ -89,7 +89,7 @@ class TaskDeleteView(
     def test_func(self):
         task = self.get_object()
         return self.request.user.id == task.author.id
-    
+
     def handle_no_permission(self):
         messages.error(self.request, own_message.login)
         return redirect("login")

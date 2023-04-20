@@ -31,5 +31,9 @@ server:
 
 migrations:
 	$(LOCAL) makemigrations
+
 migrate:
 	$(LOCAL) migrate
+
+black:
+	poetry run black task_manager/

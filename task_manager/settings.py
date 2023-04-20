@@ -90,14 +90,14 @@ WSGI_APPLICATION = "task_manager.wsgi.application"
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
 }
 
 my_db = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(my_db)
+DATABASES["default"].update(my_db)
 
 # DATABASE_URL = str(os.getenv("DB_URL"))
 

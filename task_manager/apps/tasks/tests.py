@@ -20,10 +20,11 @@ class TaskListViewTest(TestCase):
         )
         self.url = reverse("tasks_list")
         self.create_task_url = reverse("task_create")
-        self.form_data = {'name': 'one more task',
-                          'status': self.status,
-                          'description': '111',
-                          }
+        self.form_data = {
+            "name": "one more task",
+            "status": self.status,
+            "description": "111",
+        }
 
     def test_list_view_with_login(self):
         self.client.force_login(self.user)
@@ -32,13 +33,11 @@ class TaskListViewTest(TestCase):
         self.assertTemplateUsed(response, "tasks_list.html")
         self.assertContains(response, self.task.name)
 
+
 class TaskCUDTest(TestCase, LiveServerTestCase):
-    
     def setUp(self):
         self.client = Client()
-        self.user = User.objects.create_user(
-            username="testuser", password="testpass"
-        )
+        self.user = User.objects.create_user(username="testuser", password="testpass")
         self.status = baker.make("statuses.Status", name="new")
         self.url = reverse("task_create")
         self.label = baker.make("labels.Label", name="taskkkkkkkk")
@@ -49,11 +48,13 @@ class TaskCUDTest(TestCase, LiveServerTestCase):
             status=self.status,
             author=self.user,
         )
-  
-        self.task_data = {'name': 'Test Task 2',
-                          'status': 1,
-                          'description': 'Test Description 2',
-                          'label': [1, 2, 3]}
+
+        self.task_data = {
+            "name": "Test Task 2",
+            "status": 1,
+            "description": "Test Description 2",
+            "label": [1, 2, 3],
+        }
 
     def test_create_task(self):
         response = self.client.post(self.url, self.task_data)
@@ -63,8 +64,7 @@ class TaskCUDTest(TestCase, LiveServerTestCase):
         self.assertEqual(task.author, self.user)
         self.assertEqual(task.name, "Test Task 2")
         self.assertEqual(task.description, "Test Description 2")
-        self.assertEqual(task.executor, None)   
-
+        self.assertEqual(task.executor, None)
 
     def test_create_view_with_invalid_data(self):
         self.client.login(username="testuser", password="testpass")
@@ -77,17 +77,16 @@ class TaskCUDTest(TestCase, LiveServerTestCase):
         response = self.client.post(self.url, data=data)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "create.html")
-    
 
     def test_update_task(self):
         self.client.login(username="testuser", password="testpass")
         print(f"{self.task.pk} TASK ID")
         response = self.client.post(
-             reverse("task_update", kwargs={"pk": self.task.pk}), self.task_data)
+            reverse("task_update", kwargs={"pk": self.task.pk}), self.task_data
+        )
         self.assertRedirects(response, reverse("tasks_list"))
         self.task.refresh_from_db()
         self.assertEqual(self.task.name, "Test Task 2")
-
 
     def test_delete_task(self):
         self.client.login(username="testuser", password="password")
