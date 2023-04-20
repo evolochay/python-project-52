@@ -6,7 +6,7 @@
 {% block content %}
 
 <div class="container col-4 p-4 border bg-light">
-    <h3 class="mb-3 text-center" >{% translate 'Login' %}</h3>
+    <h3 class="mb-3 text-center" >{% translate 'Log in' %}</h3>
     <form action="{% url 'login' %}" method="post">
         {% csrf_token %}
         {% bootstrap_form form %}

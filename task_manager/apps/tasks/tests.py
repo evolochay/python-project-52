@@ -32,7 +32,7 @@ class TaskListViewTest(TestCase):
         self.assertTemplateUsed(response, "tasks_list.html")
         self.assertContains(response, self.task.name)
 
-class TaskCreateViewTest(TestCase, LiveServerTestCase):
+class TaskCUDTest(TestCase, LiveServerTestCase):
     
     def setUp(self):
         self.client = Client()
@@ -43,6 +43,12 @@ class TaskCreateViewTest(TestCase, LiveServerTestCase):
         self.url = reverse("task_create")
         self.label = baker.make("labels.Label", name="taskkkkkkkk")
         self.client.login(username="testuser", password="testpass")
+        self.task = Task.objects.create(
+            name="Test Task",
+            description="Test Description",
+            status=self.status,
+            author=self.user,
+        )
   
         self.task_data = {'name': 'Test Task 2',
                           'status': 1,
@@ -51,12 +57,41 @@ class TaskCreateViewTest(TestCase, LiveServerTestCase):
 
     def test_create_task(self):
         response = self.client.post(self.url, self.task_data)
-        # content = response.content.decode('utf-8')
-        # print(content)
-        self.assertEqual(Task.objects.count(), 1)
+        self.assertEqual(Task.objects.count(), 2)
         self.assertRedirects(response, reverse("tasks_list"))
-        task = Task.objects.first()
+        task = Task.objects.get(pk=2)
         self.assertEqual(task.author, self.user)
         self.assertEqual(task.name, "Test Task 2")
         self.assertEqual(task.description, "Test Description 2")
         self.assertEqual(task.executor, None)   
+
+
+    def test_create_view_with_invalid_data(self):
+        self.client.login(username="testuser", password="testpass")
+        data = {
+            "name": "",
+            "description": "",
+            "status": "",
+            "executor": "",
+        }
+        response = self.client.post(self.url, data=data)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "create.html")
+    
+
+    def test_update_task(self):
+        self.client.login(username="testuser", password="testpass")
+        print(f"{self.task.pk} TASK ID")
+        response = self.client.post(
+             reverse("task_update", kwargs={"pk": self.task.pk}), self.task_data)
+        self.assertRedirects(response, reverse("tasks_list"))
+        self.task.refresh_from_db()
+        self.assertEqual(self.task.name, "Test Task 2")
+
+
+    def test_delete_task(self):
+        self.client.login(username="testuser", password="password")
+        response = self.client.post(reverse("task_delete", kwargs={"pk": self.task.pk}))
+        self.assertFalse(Task.objects.filter(pk=self.task.pk).exists())
+        self.assertRedirects(response, reverse("tasks_list"))
+        self.assertEqual(response.status_code, 302)

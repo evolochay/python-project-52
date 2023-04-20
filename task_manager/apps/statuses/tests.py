@@ -5,7 +5,7 @@ from task_manager.apps.users.models import User
 from task_manager.apps.statuses.models import Status
 
 
-class StatuseListViewTest(TestCase):
+class StatuseTests(TestCase):
     def setUp(self):
         self.user = User.objects.create_user(username="testuser", password="testpass")
         self.status = Status.objects.create(name="Test name")
@@ -28,6 +28,7 @@ class StatuseListViewTest(TestCase):
         messages = list(response.wsgi_request._messages)
         self.assertEqual(len(messages), 1)
         self.assertEqual(str(messages[0]), "You need to be authorized")
+
 
     def test_create_status(self):
         self.client.force_login(self.user)

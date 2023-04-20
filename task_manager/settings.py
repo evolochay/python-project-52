@@ -87,11 +87,21 @@ WSGI_APPLICATION = "task_manager.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
+BASE_DIR = Path(__file__).resolve().parent.parent
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
-DATABASE_URL = str(os.getenv("DB_URL"))
+my_db = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(my_db)
 
-DATABASES = {"default": dj_database_url.config(default=DATABASE_URL)}
+# DATABASE_URL = str(os.getenv("DB_URL"))
+
+# DATABASES = {"default": dj_database_url.config(default=DATABASE_URL)}
 
 
 # DATABASES = {
