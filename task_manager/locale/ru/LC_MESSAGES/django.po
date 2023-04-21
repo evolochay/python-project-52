@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-21 13:33+0200\n"
+"POT-Creation-Date: 2023-04-21 14:23+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -106,13 +106,13 @@ msgstr "Обновить"
 msgid "Delete"
 msgstr "Удалить"
 
-#: task_manager/templates/auth.html:9 task_manager/templates/auth.html:13
+#: task_manager/templates/auth.html:9
+#: task_manager/templates/auth.html:13
 #: task_manager/templates/base.html:74
-msgid "Log in"
+msgid "Login"
 msgstr "Вход"
 
 #: task_manager/templates/base.html:33 task_manager/views.py:12
-#: msgid "Task Manager"
 msgid "Task manager"
 msgstr "Менеджер задач"
 
@@ -136,7 +136,7 @@ msgid "Log out"
 msgstr "Выйти"
 
 #: task_manager/templates/base.html:75
-msgid "Sing up"
+msgid "Sign up"
 msgstr "Зарегистрироваться"
 
 #: task_manager/templates/base.html:85
@@ -161,11 +161,11 @@ msgstr "Да, удалить"
 
 #: task_manager/templates/index.html:9
 msgid "Welcome to The Task Manager!"
-msgstr "Менеджер задач"
+msgstr "Добро пожаловать в Менеджер Задач!"
 
 #: task_manager/templates/index.html:11
 msgid "Here you can create and manage tasks with statuses and tags."
-msgstr "Здесь вы можете создавать задачи"
+msgstr "Здесь вы можете создавать задачи."
 
 #: task_manager/templates/labels_list.html:22 task_manager/utilities/text.py:18
 msgid "Create label"
@@ -187,8 +187,7 @@ msgid "Task show"
 msgstr "Просмотр задачи"
 
 #: task_manager/templates/show_task.html:31
-#, fuzzy
-#| msgid "Labels"
+# msgid "Labels"
 msgid "Labels:"
 msgstr "Метки"
 
