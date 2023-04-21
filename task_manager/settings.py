@@ -63,6 +63,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     'django.middleware.locale.LocaleMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = "task_manager.urls"
@@ -134,17 +135,15 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
-LANGUAGE_CODE = 'ru'
+
+LANGUAGE_CODE = 'ru-RU'
 
 LANGUAGES = (
-    ('en', 'English'),
     ('ru', 'Russian'),
 )
 LOCALE_PATHS = (
-    os.path.join(BASE_DIR, 'task_manager', 'locale'),
+    os.path.join(BASE_DIR, 'task_manager/locale'),
 )
-LANGUAGE_CODE = 'ru'
-
 
 TIME_ZONE = "UTC"
 
@@ -157,7 +156,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
-
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 STATIC_URL = "static/"
 
 # Default primary key field type
