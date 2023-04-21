@@ -7,7 +7,9 @@ from task_manager.apps.statuses.models import Status
 
 class StatuseTests(TestCase):
     def setUp(self):
-        self.user = User.objects.create_user(username="testuser", password="testpass")
+        self.user = User.objects.create_user(
+            username="testuser", password="testpass"
+            )
         self.status = Status.objects.create(name="Test name")
         self.form_data = {"name": "new status"}
         self.client = Client()

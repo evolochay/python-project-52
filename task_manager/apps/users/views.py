@@ -72,4 +72,6 @@ class DeleteUserView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
             messages.error(self.request, own_messages.no_delete_user)
             return redirect("users_list")
         else:
-            return redirect("%s?next=%s" % (reverse_lazy("login"), self.request.path))
+            return redirect(
+                "%s?next=%s" % (reverse_lazy("login"), self.request.path)
+                )

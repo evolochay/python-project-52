@@ -6,10 +6,14 @@ from .models import Label
 
 class LabelListViewTest(TestCase):
     def setUp(self):
-        self.user = User.objects.create_user(username="testuser", password="12345")
+        self.user = User.objects.create_user(
+            username="testuser", password="12345"
+            )
         self.label = Label.objects.create(name="Test Label")
         self.url = reverse_lazy("labels_list")
-        self.del_url = reverse_lazy("label_delete", kwargs={"pk": self.label.pk})
+        self.del_url = reverse_lazy(
+            "label_delete", kwargs={"pk": self.label.pk}
+            )
         self.client = Client()
 
     def test_list_labels(self):
