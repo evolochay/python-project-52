@@ -20,80 +20,53 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: task_manager/apps/labels/models.py:7 task_manager/apps/statuses/models.py:8
-#: task_manager/apps/tasks/models.py:9
-#: task_manager/templates/labels_list.html:28
-#: task_manager/templates/statuses_list.html:28
-#: task_manager/templates/tasks_list.html:74
+
 msgid "Name"
 msgstr "Имя"
 
-#: task_manager/apps/labels/models.py:10 task_manager/apps/tasks/filter.py:19
+
 #, fuzzy
 #| msgid "Labels"
 msgid "Label"
 msgstr "Метки"
 
-#: task_manager/apps/labels/models.py:11 task_manager/apps/tasks/models.py:28
-#: task_manager/templates/base.html:56
-#: task_manager/templates/labels_list.html:20
-#: task_manager/templates/tasks_list.html:47
+
 msgid "Labels"
 msgstr "Метки"
 
-#: task_manager/apps/tasks/filter.py:31 task_manager/apps/tasks/models.py:15
-#: task_manager/templates/show_task.html:23
-#: task_manager/templates/tasks_list.html:75
+
 msgid "Status"
 msgstr "Статусы"
 
-#: task_manager/apps/tasks/filter.py:43 task_manager/apps/tasks/models.py:24
-#: task_manager/templates/show_task.html:19
-#: task_manager/templates/tasks_list.html:41
-#: task_manager/templates/tasks_list.html:77
+
 msgid "Executor"
 msgstr "Исполнитель"
 
-#: task_manager/apps/tasks/filter.py:55 task_manager/apps/tasks/models.py:12
-#: task_manager/templates/show_task.html:15
-#: task_manager/templates/tasks_list.html:76
+
 msgid "Author"
 msgstr "Создатель"
 
-#: task_manager/apps/tasks/filter.py:66
-#: task_manager/templates/tasks_list.html:53
+
 msgid "My tasks only"
 msgstr "Только мои задачи"
 
-#: task_manager/apps/tasks/models.py:10
-#, fuzzy
-#| msgid "Registration"
 msgid "Description"
 msgstr "Зарегистрироваться"
 
-#: task_manager/apps/tasks/models.py:32
 msgid "Date"
-msgstr ""
+msgstr "Дата"
 
-#: task_manager/apps/users/forms.py:11
 msgid "Enter user first name."
 msgstr "Введите имя"
 
-#: task_manager/apps/users/forms.py:12
 msgid "Enter user last name."
 msgstr "Введите фамилию"
 
-#: task_manager/apps/users/views.py:22 task_manager/templates/base.html:47
-#: task_manager/templates/users_list.html:14
+
 msgid "Users"
 msgstr "Пользователи"
 
-#: task_manager/apps/users/views.py:23
-#: task_manager/templates/labels_list.html:40
-#: task_manager/templates/show_task.html:41
-#: task_manager/templates/statuses_list.html:40
-#: task_manager/templates/tasks_list.html:92
-#: task_manager/templates/users_list.html:30 task_manager/utilities/text.py:13
+
 msgid "Update"
 msgstr "Обновить"
 
