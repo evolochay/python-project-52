@@ -24,49 +24,59 @@ msgstr ""
 msgid "Name"
 msgstr "Имя"
 
-
-#, fuzzy
-#| msgid "Labels"
 msgid "Label"
-msgstr "Метки"
-
+msgstr "Метка"
 
 msgid "Labels"
 msgstr "Метки"
 
-
+#: task_manager/apps/tasks/filter.py:31 task_manager/apps/tasks/models.py:15
+#: task_manager/templates/show_task.html:23
+#: task_manager/templates/tasks_list.html:75
 msgid "Status"
 msgstr "Статусы"
 
-
+#: task_manager/apps/tasks/filter.py:43 task_manager/apps/tasks/models.py:24
+#: task_manager/templates/show_task.html:19
+#: task_manager/templates/tasks_list.html:41
+#: task_manager/templates/tasks_list.html:77
 msgid "Executor"
 msgstr "Исполнитель"
 
-
+#: task_manager/apps/tasks/filter.py:55 task_manager/apps/tasks/models.py:12
+#: task_manager/templates/show_task.html:15
+#: task_manager/templates/tasks_list.html:76
 msgid "Author"
 msgstr "Создатель"
 
-
+#: task_manager/apps/tasks/filter.py:66
+#: task_manager/templates/tasks_list.html:53
 msgid "My tasks only"
 msgstr "Только мои задачи"
 
-msgid "Description"
-msgstr "Зарегистрироваться"
-
+#: task_manager/apps/tasks/models.py:32
 msgid "Date"
 msgstr "Дата"
 
+#: task_manager/apps/users/forms.py:11
 msgid "Enter user first name."
 msgstr "Введите имя"
 
+#: task_manager/apps/users/forms.py:12
 msgid "Enter user last name."
 msgstr "Введите фамилию"
 
-
+#: task_manager/apps/users/views.py:22 task_manager/templates/base.html:47
+#: task_manager/templates/users_list.html:14
 msgid "Users"
 msgstr "Пользователи"
 
-
+#: task_manager/apps/users/views.py:23
+#: task_manager/templates/labels_list.html:40
+#: task_manager/templates/show_task.html:41
+#: task_manager/templates/statuses_list.html:40
+#: task_manager/templates/tasks_list.html:92
+#: task_manager/templates/users_list.html:30 task_manager/utilities/text.py:13
 msgid "Update"
 msgstr "Обновить"
 
@@ -146,7 +156,7 @@ msgstr "Создать метку"
 #: task_manager/templates/labels_list.html:27
 #: task_manager/templates/tasks_list.html:73
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: task_manager/templates/labels_list.html:29
 #: task_manager/templates/show_task.html:27
@@ -171,7 +181,7 @@ msgstr "Создать статус"
 #: task_manager/templates/statuses_list.html:27
 #: task_manager/templates/users_list.html:19
 msgid "id"
-msgstr ""
+msgstr "id"
 
 #: task_manager/templates/statuses_list.html:29
 msgid "Date of creation"
@@ -194,8 +204,9 @@ msgid "Save"
 msgstr "Сохранить"
 
 #: task_manager/utilities/text.py:7
+#: task_manager/apps/tasks/models.py:10
 msgid "Registration"
-msgstr "Зарегистрироваться"
+msgstr "Регистрация"
 
 #: task_manager/utilities/text.py:8
 msgid "Update user"
@@ -214,110 +225,97 @@ msgid "Update status"
 msgstr "Обновить статус"
 
 #: task_manager/utilities/text.py:14
-#, fuzzy
-#| msgid "Create status"
 msgid "Delete status"
-msgstr "Создать статус"
+msgstr "Удалить статус"
 
 #: task_manager/utilities/text.py:16
-#, fuzzy
-#| msgid "Update status"
 msgid "Update task"
-msgstr "Обновить статус"
+msgstr "Обновить задачу"
 
 #: task_manager/utilities/text.py:17
-#, fuzzy
-#| msgid "Delete user"
 msgid "Delete task"
-msgstr "Удалить пользователя"
+msgstr "Удалить задачу"
 
 #: task_manager/utilities/text.py:19
-#, fuzzy
-#| msgid "Update user"
 msgid "Update label"
-msgstr "Обновить пользователя"
+msgstr "Обновить метку"
 
 #: task_manager/utilities/text.py:20
-#, fuzzy
-#| msgid "Delete user"
 msgid "Delete label"
-msgstr "Удалить пользователя"
+msgstr "Удалить метку"
 
 #: task_manager/utilities/text.py:25
 msgid "You can`t change another user."
-msgstr ""
+msgstr "Вы не можете изменять другого пользователя"
 
 #: task_manager/utilities/text.py:26
 msgid "User was successfully updated."
-msgstr ""
+msgstr "Пользователь был изменен"
 
 #: task_manager/utilities/text.py:27
 msgid "User was successfully created."
-msgstr ""
+msgstr "Пользователь создан"
 
 #: task_manager/utilities/text.py:28 task_manager/views.py:20
 msgid "You're logged in"
-msgstr ""
+msgstr "Вы вошли в систему"
 
 #: task_manager/utilities/text.py:29
 msgid "New user here!"
-msgstr ""
+msgstr "Новый пользователь!"
 
 #: task_manager/utilities/text.py:30
 msgid "You can not delete another user!"
-msgstr ""
+msgstr "Вы не можете удалить другого пользователя"
 
 #: task_manager/utilities/text.py:31
 msgid "You need to be authorized"
-msgstr ""
+msgstr "Вы должны быть авторизованы"
 
 #: task_manager/utilities/text.py:32
 msgid "You created new status!"
-msgstr ""
+msgstr "Вы создали новый статус!"
 
 #: task_manager/utilities/text.py:33
 msgid "Status was successfully updated."
-msgstr ""
+msgstr "Статус был изменен"
 
 #: task_manager/utilities/text.py:34
 msgid "Status was successfully deleted"
-msgstr ""
+msgstr "Статус был удален"
 
 #: task_manager/utilities/text.py:35
 msgid "Status is in use and cannot be deleted"
-msgstr ""
+msgstr "Статус используется и не может быть удален"
 
 #: task_manager/utilities/text.py:36
 msgid "Task was successfully created."
-msgstr ""
+msgstr "Задача создана"
 
 #: task_manager/utilities/text.py:37
 msgid "Task was successfully updated."
-msgstr ""
+msgstr "Задача изменена"
 
 #: task_manager/utilities/text.py:38
 msgid "Label was successfully created."
-msgstr ""
+msgstr "Метка создана"
 
 #: task_manager/utilities/text.py:39
 msgid "Label was successfully updated."
-msgstr ""
+msgstr "Метка изменена"
 
 #: task_manager/utilities/text.py:40
 msgid "Label was successfully deleted"
-msgstr ""
+msgstr "Метка удалена"
 
 #: task_manager/utilities/text.py:41
 msgid "Label is in use and cannot be deleted"
-msgstr ""
+msgstr "Метка используется и не может быть удалена"
 
 #: task_manager/views.py:13
 msgid "A simple and functional task manager."
-msgstr ""
+msgstr "Простой и функциональный менеджер задач"
 
 #: task_manager/views.py:25
 msgid "You're logged out"
-msgstr ""
-
-#~ msgid "Register"
-#~ msgstr "Зарегистрироваться"
+msgstr "Вы вышли"
