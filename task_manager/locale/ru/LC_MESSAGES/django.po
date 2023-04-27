@@ -89,10 +89,14 @@ msgstr "Обновить"
 msgid "Delete"
 msgstr "Удалить"
 
-#: task_manager/templates/auth.html:9 task_manager/templates/auth.html:13
+#: task_manager/templates/auth.html:9 
 #: task_manager/templates/base.html:74
 msgid "Login"
 msgstr "Вход"
+
+#: task_manager/templates/auth.html:13
+msgid "Sign in"
+msgstr "Войти"
 
 #: task_manager/templates/base.html:33 task_manager/views.py:12
 msgid "Task manager"
