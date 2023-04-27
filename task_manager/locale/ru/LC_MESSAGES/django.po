@@ -118,7 +118,9 @@ msgid "Log out"
 msgstr "Выйти"
 
 #: task_manager/templates/base.html:75
-msgid "Sign up"
+#: task_manager/utilities/text.py:7
+#: task_manager/apps/tasks/models.py:10
+msgid "Registration"
 msgstr "Регистрация"
 
 #: task_manager/templates/base.html:85
@@ -202,11 +204,6 @@ msgstr "Имя пользователя"
 #: task_manager/utilities/text.py:6
 msgid "Save"
 msgstr "Сохранить"
-
-#: task_manager/utilities/text.py:7
-#: task_manager/apps/tasks/models.py:10
-msgid "Registration"
-msgstr "Регистрация"
 
 #: task_manager/utilities/text.py:8
 msgid "Update user"
