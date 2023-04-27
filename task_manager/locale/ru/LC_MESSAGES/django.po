@@ -259,7 +259,7 @@ msgstr "Пользователь создан"
 
 #: task_manager/utilities/text.py:28 task_manager/views.py:20
 msgid "You're logged in"
-msgstr "Вы вошли в систему"
+msgstr "Вы залогинены"
 
 #: task_manager/utilities/text.py:29
 msgid "New user here!"
@@ -274,44 +274,44 @@ msgid "You need to be authorized"
 msgstr "Вы должны быть авторизованы"
 
 #: task_manager/utilities/text.py:32
-msgid "You created new status!"
-msgstr "Вы создали новый статус!"
+msgid "Status was successfully created"
+msgstr "Статус успешно создан"
 
 #: task_manager/utilities/text.py:33
 msgid "Status was successfully updated."
-msgstr "Статус был изменен"
+msgstr "Статус успешно изменён"
 
 #: task_manager/utilities/text.py:34
 msgid "Status was successfully deleted"
-msgstr "Статус был удален"
+msgstr "Статус успешно удалён"
 
 #: task_manager/utilities/text.py:35
 msgid "Status is in use and cannot be deleted"
-msgstr "Статус используется и не может быть удален"
+msgstr "Невозможно удалить статус, потому что он используется"
 
 #: task_manager/utilities/text.py:36
 msgid "Task was successfully created."
-msgstr "Задача создана"
+msgstr "Задача успешно создана"
 
 #: task_manager/utilities/text.py:37
 msgid "Task was successfully updated."
-msgstr "Задача изменена"
+msgstr "Задача успешно изменена"
 
 #: task_manager/utilities/text.py:38
 msgid "Label was successfully created."
-msgstr "Метка создана"
+msgstr "Метка успешно создана"
 
 #: task_manager/utilities/text.py:39
 msgid "Label was successfully updated."
-msgstr "Метка изменена"
+msgstr "Метка успешно изменена"
 
 #: task_manager/utilities/text.py:40
 msgid "Label was successfully deleted"
-msgstr "Метка удалена"
+msgstr "Метка успешно удалена"
 
 #: task_manager/utilities/text.py:41
 msgid "Label is in use and cannot be deleted"
-msgstr "Метка используется и не может быть удалена"
+msgstr "Невозможно удалить метку, потому что она используется"
 
 #: task_manager/views.py:13
 msgid "A simple and functional task manager."
@@ -319,4 +319,4 @@ msgstr "Простой и функциональный менеджер зада
 
 #: task_manager/views.py:25
 msgid "You're logged out"
-msgstr "Вы вышли"
+msgstr "Вы разлогинены"
