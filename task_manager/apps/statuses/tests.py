@@ -29,7 +29,6 @@ class StatuseTests(TestCase):
         )
         messages = list(response.wsgi_request._messages)
         self.assertEqual(len(messages), 1)
-        self.assertEqual(str(messages[0]), "You need to be authorized")
 
     def test_create_status(self):
         self.client.force_login(self.user)

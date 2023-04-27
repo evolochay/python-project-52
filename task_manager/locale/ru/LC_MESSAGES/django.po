@@ -119,7 +119,7 @@ msgstr "Выйти"
 
 #: task_manager/templates/base.html:75
 msgid "Sign up"
-msgstr "Зарегистрироваться"
+msgstr "Регистрация"
 
 #: task_manager/templates/base.html:85
 msgid "Educational project"
