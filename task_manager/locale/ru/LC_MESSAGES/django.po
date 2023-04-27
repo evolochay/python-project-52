@@ -119,7 +119,7 @@ msgstr "Задачи"
 
 #: task_manager/templates/base.html:70
 msgid "Log out"
-msgstr "Выйти"
+msgstr "Выход"
 
 #: task_manager/templates/base.html:75
 #: task_manager/utilities/text.py:7
