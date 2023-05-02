@@ -30,7 +30,7 @@ class UserCreateView(SuccessMessageMixin, CreateView):
     template_name = "create.html"
     success_url = reverse_lazy("login")
     success_message = own_messages.user_create
-    extra_context = {"header": titles.reg, "button_name": titles.reg}
+    extra_context = {"header": titles.reg, "button_name": titles.to_reg}
 
 
 class UpdateUserView(

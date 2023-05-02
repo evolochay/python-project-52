@@ -131,6 +131,10 @@ msgstr "Выход"
 msgid "Registration"
 msgstr "Регистрация"
 
+#: task_manager/utils/text.py:34
+msgid "To register"
+msgstr "Зарегистрировать"
+
 #: task_manager/templates/base.html:85
 msgid "Educational project"
 msgstr "Учебный проект"

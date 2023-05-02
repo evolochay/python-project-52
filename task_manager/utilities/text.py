@@ -5,6 +5,7 @@ class TitleName:
     def __init__(self):
         self.save = _("Save")
         self.reg = _("Registration")
+        self.to_reg = _("To register")
         self.update_user = _("Update user")
         self.create_status = _("Create status")
         self.create = _("Create")
