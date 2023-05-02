@@ -262,16 +262,12 @@ msgid "User was successfully updated."
 msgstr "Пользователь был изменен"
 
 #: task_manager/utilities/text.py:27
-msgid "User was successfully created."
-msgstr "Пользователь создан"
+msgid "User was successfully created"
+msgstr "Пользователь успешно зарегистрирован"
 
 #: task_manager/utilities/text.py:28 task_manager/views.py:20
 msgid "You're logged in"
 msgstr "Вы залогинены"
-
-#: task_manager/utilities/text.py:29
-msgid "New user here!"
-msgstr "Новый пользователь!"
 
 #: task_manager/utilities/text.py:30
 msgid "You can not delete another user!"
