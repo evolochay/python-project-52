@@ -78,7 +78,7 @@ msgstr "Пользователи"
 #: task_manager/templates/tasks_list.html:92
 #: task_manager/templates/users_list.html:30 task_manager/utilities/text.py:13
 msgid "Update"
-msgstr "Обновить"
+msgstr "Изменить"
 
 #: task_manager/apps/users/views.py:24
 #: task_manager/templates/labels_list.html:42
