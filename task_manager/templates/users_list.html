@@ -18,6 +18,8 @@
             <tr>
               <th>{% translate "id"|upper %}</th>
               <th>{% translate "User name"|capfirst %}</th>
+              <th>{% translate "Full name"|capfirst %}</th>
+              <th>{% translate "Created date"|capfirst %}</th>
               <th></th>
             </tr>
         </thead>
@@ -26,6 +28,8 @@
                 <tr>
                     <td>{{ user.id }}</td>
                     <td>{{ user.username }}</td>
+                    <td>{{ user.first_name}} {{user.last_name}}</td>
+                    <td>{{ user.date_joined|date:'d.m.Y' }}</td>
                     <td>
                         <a href="{% url 'user_update' user.pk %}">{% translate "Update" %}</a>
                         <br>

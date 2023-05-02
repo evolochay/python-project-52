@@ -89,6 +89,10 @@ msgstr "Обновить"
 msgid "Delete"
 msgstr "Удалить"
 
+#: task_manager/templates/users_list.html:21
+msgid "Full name"
+msgstr "Полное имя"
+
 #: task_manager/templates/auth.html:9 
 #: task_manager/templates/base.html:74
 msgid "Login"
