@@ -40,7 +40,7 @@ class UpdateUserView(
     form_class = UserRegisterForm
     template_name = "create.html"
     success_url = reverse_lazy("login")
-    extra_context = {"header": titles.update_user, "button_name": titles.save}
+    extra_context = {"header": titles.update_user, "button_name": titles.change}
 
     def test_func(self):
         user = self.get_object()

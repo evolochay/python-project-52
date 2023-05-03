@@ -3,7 +3,7 @@ from django.utils.translation import gettext as _
 
 class TitleName:
     def __init__(self):
-        self.save = _("Save")
+        self.change = _("Change")
         self.reg = _("Registration")
         self.to_reg = _("To register")
         self.update_user = _("Update user")

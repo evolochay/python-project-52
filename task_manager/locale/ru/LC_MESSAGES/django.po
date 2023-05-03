@@ -214,8 +214,8 @@ msgid "User name"
 msgstr "Имя пользователя"
 
 #: task_manager/utilities/text.py:6
-msgid "Save"
-msgstr "Сохранить"
+msgid "Change"
+msgstr "Изменить"
 
 #: task_manager/utilities/text.py:8
 msgid "Update user"
