@@ -5,6 +5,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth import get_user_model
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib.auth import authenticate, login
 from django.utils.translation import gettext_lazy as _
 from task_manager.apps.users.forms import UserRegisterForm
 from task_manager.utilities.text import TitleName, Message
@@ -46,8 +47,16 @@ class UpdateUserView(
 
     def test_func(self):
         user = self.get_object()
-        messages.success(self.request, own_messages.user_update)
         return self.request.user.id == user.id
+
+    def form_valid(self, form):
+        form.save()
+        username = self.request.POST['username']
+        password = self.request.POST['password1']
+        user = authenticate(username=username, password=password)
+        login(self.request, user)
+        messages.success(self.request, own_messages.user_update)
+        return redirect(self.success_url)
 
     def handle_no_permission(self):
         if self.request.user.is_authenticated:
