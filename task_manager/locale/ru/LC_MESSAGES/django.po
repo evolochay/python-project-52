@@ -258,7 +258,7 @@ msgid "You can`t change another user."
 msgstr "Вы не можете изменять другого пользователя"
 
 #: task_manager/utilities/text.py:26
-msgid "User was successfully updated."
+msgid "User was successfully updated"
 msgstr "Пользователь успешно изменён"
 
 #: task_manager/utilities/text.py:27
