@@ -55,7 +55,7 @@ msgstr "Создатель"
 #: task_manager/apps/tasks/filter.py:66
 #: task_manager/templates/tasks_list.html:53
 msgid "My tasks only"
-msgstr "Только мои задачи"
+msgstr "Только свои задачи"
 
 #: task_manager/apps/tasks/models.py:32
 msgid "Date"
