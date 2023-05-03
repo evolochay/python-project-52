@@ -286,7 +286,7 @@ msgid "Status was successfully created"
 msgstr "Статус успешно создан"
 
 #: task_manager/utilities/text.py:33
-msgid "Status was successfully updated."
+msgid "Status was successfully updated"
 msgstr "Статус успешно изменён"
 
 #: task_manager/utilities/text.py:34
@@ -298,19 +298,19 @@ msgid "Status is in use and cannot be deleted"
 msgstr "Невозможно удалить статус, потому что он используется"
 
 #: task_manager/utilities/text.py:36
-msgid "Task was successfully created."
+msgid "Task was successfully created"
 msgstr "Задача успешно создана"
 
 #: task_manager/utilities/text.py:37
-msgid "Task was successfully updated."
+msgid "Task was successfully updated"
 msgstr "Задача успешно изменена"
 
 #: task_manager/utilities/text.py:38
-msgid "Label was successfully created."
+msgid "Label was successfully created"
 msgstr "Метка успешно создана"
 
 #: task_manager/utilities/text.py:39
-msgid "Label was successfully updated."
+msgid "Label was successfully updated"
 msgstr "Метка успешно изменена"
 
 #: task_manager/utilities/text.py:40
@@ -322,7 +322,7 @@ msgid "Label is in use and cannot be deleted"
 msgstr "Невозможно удалить метку, потому что она используется"
 
 #: task_manager/views.py:13
-msgid "A simple and functional task manager."
+msgid "A simple and functional task manager"
 msgstr "Простой и функциональный менеджер задач"
 
 #: task_manager/views.py:25
