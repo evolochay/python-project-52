@@ -37,7 +37,7 @@ msgstr "Описание"
 #: task_manager/templates/show_task.html:23
 #: task_manager/templates/tasks_list.html:75
 msgid "Status"
-msgstr "Статусы"
+msgstr "Статус"
 
 #: task_manager/apps/tasks/filter.py:43 task_manager/apps/tasks/models.py:24
 #: task_manager/templates/show_task.html:19
