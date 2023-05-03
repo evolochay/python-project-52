@@ -46,6 +46,7 @@ class UpdateUserView(
 
     def test_func(self):
         user = self.get_object()
+        messages.success(self.request, own_messages.user_update)
         return self.request.user.id == user.id
 
     def handle_no_permission(self):
