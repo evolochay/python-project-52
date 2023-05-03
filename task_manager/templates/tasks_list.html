@@ -17,9 +17,10 @@
       display: block;
       padding: .5rem 1rem;
   }
-  .form-control {
-    
-  }
+  .form-group {
+  border-radius: 50px;
+  
+}
 </style>
 
 <div class="mb-3 text-left">
@@ -32,27 +33,28 @@
   <div class="card-body bg-light p-3">
     <form class="mb-0" method="get">
       <div class="row">
-          <div class="col-md-4 mb-3">
-            {{ filter.form.status.label }}
-            {{ filter.form.status }}
-          </div>
-          <div class="col-md-5 mb-3">
-            {{ filter.form.executor.label }}
-            {{ filter.form.executor }}
-          </div>
-          <div class="col-auto mr-auto"><br>
-          {{ filter.form.self_task }} {% translate 'My tasks only' %}
-          </div>
+        <div class="ml-2 mr-3 d-flex align-items-center">
+          {{ filter.form.status.label }}&nbsp;
+          {{ filter.form.status }}
+        </div>
       </div>
       <div class="row">
-          <div class="col-md-4 mb-3">
-            {{ filter.form.label.label }}
-            {{ filter.form.label }}
-          </div>
-          <div class="col-md-5 mb-3">
-            {{ filter.form.author.label }}
-            {{ filter.form.author }}
-          </div>
+        <div class="ml-2 mr-3 d-flex align-items-center">
+          {{ filter.form.executor.label }}&nbsp;
+          {{ filter.form.executor }}
+        </div>
+        <div class="form-check">
+          {{ filter.form.self_task }}
+          <label class="form-check-label" for="{{ filter.form.self_task.id_for_label }}">
+          {% translate 'My tasks only' %}
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="ml-2 mr-3 d-flex align-items-center">
+          {{ filter.form.labels.label }}&nbsp;
+          {{ filter.form.labels }}
+        </div>
         <div class="col-auto mx-auto"><br>
           <button class="btn btn-primary" type="submit">{% translate "Show" %}</button>
         </div>
