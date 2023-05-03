@@ -24,18 +24,13 @@ msgstr ""
 msgid "Name"
 msgstr "Имя"
 
-msgid "Label"
-msgstr "Метка"
-
-msgid "Labels"
-msgstr "Метки"
-
 msgid "Description"
 msgstr "Описание"
 
 #: task_manager/apps/tasks/filter.py:31 task_manager/apps/tasks/models.py:15
 #: task_manager/templates/show_task.html:23
 #: task_manager/templates/tasks_list.html:75
+#: task_manager/templates/tasks_list.html:35
 msgid "Status"
 msgstr "Статус"
 
@@ -115,7 +110,6 @@ msgstr "Менеджер задач"
 
 #: task_manager/templates/base.html:52
 #: task_manager/templates/statuses_list.html:20
-#: task_manager/templates/tasks_list.html:35
 msgid "Statuses"
 msgstr "Статусы"
 
@@ -185,9 +179,12 @@ msgstr "Дата создания"
 msgid "Task show"
 msgstr "Просмотр задачи"
 
-# msgid "Labels"
+#: task_manager/templates/tasks_list.html:47
+msgid "Label"
+msgstr "Метка"
+
 #: task_manager/templates/show_task.html:31
-msgid "Labels:"
+msgid "Labels"
 msgstr "Метки"
 
 #: task_manager/templates/statuses_list.html:22
