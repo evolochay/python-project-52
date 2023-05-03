@@ -273,6 +273,10 @@ msgstr "Вы залогинены"
 msgid "You can not delete another user!"
 msgstr "Вы не можете удалить другого пользователя"
 
+#: task_manager/utilities/text.py:32
+msgid "User was successfully deleted"
+msgstr "Пользователь успешно удалён"
+
 #: task_manager/utilities/text.py:31
 msgid "You need to be authorized"
 msgstr "Вы должны быть авторизованы"

@@ -23,12 +23,13 @@ class TitleName:
 
 class Message:
     def __init__(self):
-        self.no_rigths_for_user = _("You don't have the rights "
+        self.no_rigths = _("You don't have the rights "
                                     "to change another user")
         self.user_update = _("User was successfully updated")
         self.user_create = _("User was successfully created")
         self.user_login = _("You're logged in")
-        self.no_delete_user = _("You can not delete another user!")
+        self.cant_delete_user = _("You can not delete another user!")
+        self.user_delete = _("User was successfully deleted")
         self.login = _("You need to be authorized")
         self.status_create = _("Status was successfully created")
         self.status_update = _("Status was successfully updated")

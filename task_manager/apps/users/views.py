@@ -7,6 +7,7 @@ from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth import authenticate, login
 from django.utils.translation import gettext_lazy as _
+from django.db.models import ProtectedError
 from task_manager.apps.users.forms import UserRegisterForm
 from task_manager.utilities.text import TitleName, Message
 
@@ -60,7 +61,7 @@ class UpdateUserView(
 
     def handle_no_permission(self):
         if self.request.user.is_authenticated:
-            message = own_messages.no_rigths_for_user
+            message = own_messages.no_rigths
             url = reverse_lazy("users_list")
         else:
             message = own_messages.login
@@ -81,9 +82,20 @@ class DeleteUserView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
     def handle_no_permission(self):
         if self.request.user.is_authenticated:
-            messages.error(self.request, own_messages.no_delete_user)
+            messages.error(self.request, own_messages.cant_delete_user)
             return redirect("users_list")
         else:
             return redirect(
                 "%s?next=%s" % (reverse_lazy("login"), self.request.path)
                 )
+
+    def form_valid(self, form):
+        success_url = self.get_success_url()
+        try:
+            self.object.delete()
+            messages.success(self.request, own_messages.user_delete)
+            return redirect(self.success_url)
+        except ProtectedError:
+            messages.warning(self.request,
+                             own_messages.cant_delete_user)
+            return redirect(success_url)
