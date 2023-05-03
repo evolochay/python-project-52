@@ -30,6 +30,9 @@ msgstr "Метка"
 msgid "Labels"
 msgstr "Метки"
 
+msgid "Description"
+msgstr "Описание"
+
 #: task_manager/apps/tasks/filter.py:31 task_manager/apps/tasks/models.py:15
 #: task_manager/templates/show_task.html:23
 #: task_manager/templates/tasks_list.html:75
