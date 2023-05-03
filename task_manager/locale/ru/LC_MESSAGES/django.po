@@ -254,8 +254,8 @@ msgid "Delete label"
 msgstr "Удалить метку"
 
 #: task_manager/utilities/text.py:25
-msgid "You can`t change another user."
-msgstr "Вы не можете изменять другого пользователя"
+msgid "You don't have the rights to change another user"
+msgstr "У вас нет прав для изменения другого пользователя"
 
 #: task_manager/utilities/text.py:26
 msgid "User was successfully updated"

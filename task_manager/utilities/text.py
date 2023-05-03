@@ -23,7 +23,8 @@ class TitleName:
 
 class Message:
     def __init__(self):
-        self.no_rigths_for_user = _("You can`t change another user")
+        self.no_rigths_for_user = _("You don't have the rights "
+                                    "to change another user")
         self.user_update = _("User was successfully updated")
         self.user_create = _("User was successfully created")
         self.user_login = _("You're logged in")
