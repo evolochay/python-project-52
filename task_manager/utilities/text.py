@@ -37,6 +37,7 @@ class Message:
         self.no_delete_status = _("Status is in use and cannot be deleted")
         self.task_create = _("Task was successfully created")
         self.task_update = _("Task was successfully updated")
+        self.task_delete = _("Task was successfully deleted")
         self.label_create = _("Label was successfully created")
         self.label_update = _("Label was successfully updated")
         self.label_delete = _("Label was successfully deleted")

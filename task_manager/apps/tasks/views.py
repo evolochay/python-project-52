@@ -88,6 +88,7 @@ class TaskDeleteView(
     success_url = reverse_lazy("tasks_list")
     template_name = "delete.html"
     extra_context = {"del_title": titles.delete_status}
+    success_message = own_message.task_delete
 
     def test_func(self):
         task = self.get_object()

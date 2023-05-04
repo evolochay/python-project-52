@@ -305,6 +305,10 @@ msgstr "Задача успешно создана"
 msgid "Task was successfully updated"
 msgstr "Задача успешно изменена"
 
+#: task_manager/utilities/text.py:40
+msgid "Task was successfully deleted"
+msgstr "Задача успешно удалена"
+
 #: task_manager/utilities/text.py:38
 msgid "Label was successfully created"
 msgstr "Метка успешно создана"
