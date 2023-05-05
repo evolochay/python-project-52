@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from pathlib import Path
 import dj_database_url
 import os
-#import rollbar
 from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -49,7 +48,6 @@ INSTALLED_APPS = [
     "task_manager.apps.tasks",
     "task_manager.apps.labels",
     "django_filters",
-    #'rollbar',
 ]
 
 AUTH_USER_MODEL = "users.User"
@@ -77,8 +75,6 @@ ROLLBAR = {
     'code_version': '1.0',
     'root': BASE_DIR,
 }
-
-#rollbar.init(**ROLLBAR)
 
 ROOT_URLCONF = 'task_manager.urls'
 
