@@ -33,11 +33,11 @@ class TaskListView(LoginRequiredMixin, FilterView):
 class TaskCreateView(LoginRequiredMixin, CreateView):
     model = Task
     fields = ["name", "description", "status", "executor", "labels"]
-    template_name = "create.html"
+    template_name = "crud/create&update.html"
     success_url = reverse_lazy("tasks_list")
     extra_context = {
         "header": titles.create_task, "button_name": titles.create
-        }
+    }
     login_url = "login"
 
     def handle_no_permission(self):
@@ -67,12 +67,12 @@ class TaskShowView(LoginRequiredMixin, DetailView):
 class TaskUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = Task
     fields = ["name", "description", "status", "executor", "labels"]
-    template_name = "create.html"
+    template_name = "crud/create&update.html"
     success_url = reverse_lazy("tasks_list")
     success_message = own_message.task_update
     extra_context = {
         "header": titles.update_task, "button_name": titles.update
-        }
+    }
     login_url = "login"
 
     def handle_no_permission(self):
@@ -86,7 +86,7 @@ class TaskDeleteView(
     model = Task
     login_url = "login"
     success_url = reverse_lazy("tasks_list")
-    template_name = "delete.html"
+    template_name = "crud/delete.html"
     extra_context = {"del_title": titles.delete_status}
     success_message = own_message.task_delete
 

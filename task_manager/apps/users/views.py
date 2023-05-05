@@ -29,7 +29,7 @@ class UserListView(ListView):
 
 class UserCreateView(SuccessMessageMixin, CreateView):
     form_class = UserRegisterForm
-    template_name = "create.html"
+    template_name = "crud/create&update.html"
     success_url = reverse_lazy("login")
     success_message = own_messages.user_create
     extra_context = {"header": titles.reg, "button_name": titles.to_reg}
@@ -40,11 +40,11 @@ class UpdateUserView(
 ):
     model = get_user_model()
     form_class = UserRegisterForm
-    template_name = "create.html"
+    template_name = "crud/create&update.html"
     success_url = reverse_lazy("users_list")
     extra_context = {
         "header": titles.update_user, "button_name": titles.change
-        }
+    }
 
     def test_func(self):
         user = self.get_object()
@@ -72,7 +72,7 @@ class UpdateUserView(
 
 class DeleteUserView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = get_user_model()
-    template_name = "delete.html"
+    template_name = "crud/delete.html"
     success_url = reverse_lazy("users_list")
     extra_context = {"del_title": titles.delete_user}
 
@@ -87,7 +87,7 @@ class DeleteUserView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         else:
             return redirect(
                 "%s?next=%s" % (reverse_lazy("login"), self.request.path)
-                )
+            )
 
     def form_valid(self, form):
         success_url = self.get_success_url()

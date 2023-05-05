@@ -26,7 +26,7 @@ class LabelListView(LoginRequiredMixin, ListView):
 class LabelCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = Label
     fields = ["name"]
-    template_name = "create.html"
+    template_name = "crud/create&update.html"
     success_url = reverse_lazy("labels_list")
     login_url = "login"
     success_message = own_message.label_create
@@ -41,7 +41,7 @@ class LabelUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = Label
     fields = ["name"]
     login_url = "login"
-    template_name = "create.html"
+    template_name = "crud/create&update.html"
     success_url = reverse_lazy("labels_list")
     success_message = own_message.label_update
     extra_context = {"header": title.update_label, "button_name": title.update}
@@ -55,7 +55,7 @@ class LabelDeleteView(LoginRequiredMixin, DeleteView):
     model = Label
     login_url = "login"
     success_url = reverse_lazy("labels_list")
-    template_name = "delete.html"
+    template_name = "crud/delete.html"
     extra_context = {"deltitle": title.delete_label}
 
     def handle_no_permission(self):

@@ -29,7 +29,7 @@ class StatusCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = Status
     fields = ["name"]
     login_url = "login"
-    template_name = "create.html"
+    template_name = "crud/create&update.html"
     success_url = reverse_lazy("statuses_list")
     success_message = own_messages.status_create
     extra_context = {"header": titles.create_status,
@@ -44,7 +44,7 @@ class StatusUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = Status
     fields = ["name"]
     login_url = "login"
-    template_name = "create.html"
+    template_name = "crud/create&update.html"
     success_url = reverse_lazy("statuses_list")
     success_message = own_messages.status_update
     extra_context = {"header": titles.update_status,
@@ -59,7 +59,7 @@ class StatusDeleteView(LoginRequiredMixin, DeleteView):
     model = Status
     login_url = "login"
     success_url = reverse_lazy("statuses_list")
-    template_name = "delete.html"
+    template_name = "crud/delete.html"
     extra_context = {"del_title": titles.delete_status}
 
     def handle_no_permission(self):

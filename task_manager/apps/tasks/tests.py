@@ -1,11 +1,9 @@
 from django.test import TestCase, LiveServerTestCase, Client
 from django.urls import reverse
 from model_bakery import baker
-from django.contrib.messages import get_messages
 from task_manager.apps.users.models import User
 from task_manager.apps.statuses.models import Status
 from task_manager.apps.tasks.models import Task
-from task_manager.apps.labels.models import Label
 
 
 class TaskListViewTest(TestCase):
@@ -76,7 +74,7 @@ class TaskCUDTest(TestCase, LiveServerTestCase):
         }
         response = self.client.post(self.url, data=data)
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "create.html")
+        self.assertTemplateUsed(response, "crud/create&update.html")
 
     def test_update_task(self):
         self.client.login(username="testuser", password="testpass")
