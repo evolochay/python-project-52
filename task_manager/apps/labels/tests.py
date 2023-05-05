@@ -23,7 +23,6 @@ class LabelListViewTest(TestCase):
         self.assertTemplateUsed(response, "labels_list.html")
         self.assertContains(response, "Test Label")
 
-
     def test_create_label(self):
         self.client.login(username="testuser", password="12345")
         form_data = {
