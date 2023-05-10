@@ -329,6 +329,10 @@ msgstr "Невозможно удалить метку, потому что он
 msgid "A simple and functional task manager"
 msgstr "Простой и функциональный менеджер задач"
 
+#: task_manager/utilities/text.py:45
+msgid "It is not possible to delete a user because it is being used"
+msgstr "Невозможно удалить пользователя, потому что он используется"
+
 #: task_manager/views.py:25
 msgid "You're logged out"
 msgstr "Вы разлогинены"

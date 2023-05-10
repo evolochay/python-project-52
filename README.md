@@ -14,6 +14,8 @@
 
 Register, create, delete, and modify tasks, labels, and statuses. Assign task executors and filter tasks by tags, statuses, and executors, or view only tasks that you have created!
 
+[Railway](https://python-project-52-production-073a.up.railway.app)
+
 ## Installation
 
 Clone the repository:
@@ -39,6 +41,7 @@ Add variables:
 ROLLBAR_KEY (Rollbar key)
 SECRET_KEY (Secter key Django)
 DB_URL (Database)
+DEBUG 
 
 To use simple sqlite database use this record: 
 `DB_URL='sqlite:///db.sqlite3'`

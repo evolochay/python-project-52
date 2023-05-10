@@ -85,6 +85,7 @@ class DeleteUserView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
             messages.error(self.request, own_messages.cant_delete_user)
             return redirect("users_list")
         else:
+            messages.warning(self.request, own_messages.login)
             return redirect(
                 "%s?next=%s" % (reverse_lazy("login"), self.request.path)
             )
@@ -97,5 +98,5 @@ class DeleteUserView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
             return redirect(self.success_url)
         except ProtectedError:
             messages.warning(self.request,
-                             own_messages.cant_delete_user)
+                             own_messages.user_in_use)
             return redirect(success_url)

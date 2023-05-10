@@ -15,15 +15,13 @@ import dj_database_url
 import os
 from dotenv import load_dotenv
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Load custom variables
 load_dotenv()
+
 SECRET_KEY = str(os.getenv("SECRET_KEY"))
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG') == 'True'
 
 ALLOWED_HOSTS = [
     "127.0.0.1",
@@ -31,8 +29,6 @@ ALLOWED_HOSTS = [
     "python-project-52-production-073a.up.railway.app",
 ]
 
-
-# Application definition
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -97,8 +93,6 @@ TEMPLATES = [
 WSGI_APPLICATION = "task_manager.wsgi.application"
 
 
-# Database
-# https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 DATABASES = {

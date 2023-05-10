@@ -42,3 +42,5 @@ class Message:
         self.label_update = _("Label was successfully updated")
         self.label_delete = _("Label was successfully deleted")
         self.no_delete_label = _("Label is in use and cannot be deleted")
+        self.user_in_use = _("It is not possible to delete a user "
+                             "because it is being used")
