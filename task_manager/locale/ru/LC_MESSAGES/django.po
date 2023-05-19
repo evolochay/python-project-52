@@ -259,7 +259,7 @@ msgstr "У вас нет прав для изменения другого по�
 
 #: task_manager/utilities/text.py:26
 msgid "User was successfully updated"
-msgstr "Пользователь успешно изменён"
+msgstr "Пользователь успешно изменен"
 
 #: task_manager/utilities/text.py:27
 msgid "User was successfully created"
@@ -275,7 +275,7 @@ msgstr "Вы не можете удалить другого пользоват�
 
 #: task_manager/utilities/text.py:32
 msgid "User was successfully deleted"
-msgstr "Пользователь успешно удалён"
+msgstr "Пользователь успешно удален"
 
 #: task_manager/utilities/text.py:31
 msgid "You need to be authorized"
@@ -287,11 +287,11 @@ msgstr "Статус успешно создан"
 
 #: task_manager/utilities/text.py:33
 msgid "Status was successfully updated"
-msgstr "Статус успешно изменён"
+msgstr "Статус успешно изменен"
 
 #: task_manager/utilities/text.py:34
 msgid "Status was successfully deleted"
-msgstr "Статус успешно удалён"
+msgstr "Статус успешно удален"
 
 #: task_manager/utilities/text.py:35
 msgid "Status is in use and cannot be deleted"
