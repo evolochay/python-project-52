@@ -92,7 +92,7 @@ msgid "Full name"
 msgstr "Полное имя"
 
 #: task_manager/templates/auth.html:9 
-#: task_manager/templates/base.html:74
+#: task_manager/templates/base.html:36
 msgid "Login"
 msgstr "Вход"
 
@@ -122,7 +122,7 @@ msgstr "Задачи"
 msgid "Log out"
 msgstr "Выход"
 
-#: task_manager/templates/base.html:75
+#: task_manager/templates/base.html:37
 #: task_manager/utilities/text.py:7
 #: task_manager/apps/tasks/models.py:10
 msgid "Registration"
