@@ -7,27 +7,11 @@
 
 
 {% block content %}
-<style>
-  .nav-link {
-      display: block;
-      padding: .5rem 1rem;
-
-  }
-  h2 {
-      display: block;
-      padding: .5rem 1rem;
-  }
-  .form-group {
-  border-radius: 50px;
-  
-}
-</style>
 
 <div class="mb-3 text-left">
   <h2>{% translate "Tasks" %}</h2>
 </div>
-
-<a class="nav-link" href="{% url 'task_create' %}">{% translate "Create task" %}</a>
+<a href="{% url 'task_create' %}" class="btn btn-outline-dark" data-mdb-ripple-color="dark">{% translate "Create task" %}</a>
 <div class="card mb-3">
   <div class="card-body bg-light">
       <form class="form-inline center" method="get">

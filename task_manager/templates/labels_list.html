@@ -4,46 +4,33 @@
 
 
 {% block content %}
-<style>
-    .nav-link {
-        display: block;
-        padding: .5rem 1rem;
-
-    }
-    h2 {
-        display: block;
-        padding: .5rem 1rem;
-    }
-</style>
 
 <div class="mb-3 text-left">
     <h2>{% translate "Labels" %}</h2>
 </div>
-<a class="nav-link" href="{% url 'label_create' %}">{% translate "Create label" %}</a>
-
-  <table class="table table-striped border">
-    <thead>
+<a href="{% url 'label_create' %}" class="btn btn-outline-dark" data-mdb-ripple-color="dark">{% translate "Create label" %}</a>
+<table class="table table-striped border">
+  <thead>
+    <tr>
+      <th>{% translate "ID" %}</th>
+      <th>{% translate "Name" %}</th>
+      <th>{% translate "Created date" %}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for label in labels %}
       <tr>
-        <th>{% translate "ID" %}</th>
-        <th>{% translate "Name" %}</th>
-        <th>{% translate "Created date" %}</th>
-        <th></th>
+        <td>{{ label.id }}</td>
+        <td>{{ label.name}}</td>
+        <td>{{ label.time_create|date:'d.m.Y' }}</td>
+        <td>
+          <a href="{% url 'label_update' label.pk %}">{% translate "Update" %}</a>
+          <br>
+          <a href="{% url 'label_delete' label.pk %}">{% translate "Delete" %}</a>
+        </td>
       </tr>
-    </thead>
-    <tbody>
-      {% for label in labels %}
-        <tr>
-          <td>{{ label.id }}</td>
-          <td>{{ label.name}}</td>
-          <td>{{ label.time_create|date:'d.m.Y' }}</td>
-          <td>
-              <a href="{% url 'label_update' label.pk %}">{% translate "Update" %}</a>
-              <br>
-              <a href="{% url 'label_delete' label.pk %}">{% translate "Delete" %}</a>
-          </td>
-        </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+    {% endfor %}
+  </tbody>
+</table>
 
 {% endblock %}

@@ -2,17 +2,20 @@
 {% load bootstrap4 %}
 {% load i18n %}
 
-<div class="mb-3 text-center">
-    <h1>{% translate "Registration form" %}</h1>
+<div class="mb-3 text-center mt-5">
+    <h1 class="mt-5">{% translate "Registration form" %}</h1>
 </div>
 
 {% block content%}
-    <div class="container col-7">
-        <h3 class="mb-3 text-center">{{ header }}</h3>
-        <form class="form" method="post">
-            {% csrf_token %}
-            {% bootstrap_form form %}
-            <button class="btn btn-primary" type="submit">{{ button_name }}</button>
-        </form>
-    </div>
+
+
+<div class="container col-7">
+    <h3 class="mb-3 text-center mt-5">{{ header }}</h3>
+    <form class="form" method="post">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <button class="btn btn-primary" type="submit">{{ button_name }}</button>
+    </form>
+</div>
+
 {% endblock %}
